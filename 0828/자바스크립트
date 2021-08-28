@@ -1,0 +1,113 @@
+자바스크립트는 자바랑 관련없다
+스크립트 언어와 인터프리터언어
+특성을 가지고 있따.
+
+변수와 상수
+상수 CONST고 이름을 붙여야 하는데 이걸 식별자
+const sum = 5+10
+if (sum)
+값을 변경할수 없다
+
+let 변수
+
+2. 변수의 유효범위   cosnt let
+   블럭은 {}중가로로 이루어진 영역
+블럭 안에 사용된 변수는 바깥에선 사용 되지 않는다.
+{const name = 'mark'}
+console.log(name);
+
+밖에서 선언된건 {}안에서 사용가능
+let age = 37
+{
+age++
+console.log(age);
+}
+console.log(age);
+
+결과 둘다 38
+
+
+{
+  {
+
+   }
+}
+중첩가능하고 안에블럭에서 사용된 변수는 바깥블럭에선 알수 없다
+
+const let은 블럭 스코프
+var은 함수 스코프
+var a= 0;
+(funtion(){
+	a++;
+	console.log(a);
+})();
+
+
+(funtion(){
+	var b = 0;
+	console.log(b);	
+	
+})();
+b++;
+console.log(b)
+
+
+
+밑에 같은 경우 var대신 블럭스코프 const let 을 쓰면 애러가 뜨지만 
+var는 함수스코프로 결과 값이 잘 나온다
+{
+	var d= 0;
+	consloe.log(d);
+}
+console.log(d)
+
+근대 이렇게 쓰면 어색하기 때문에 const let을 쓴다
+
+
+3. var와 호이스팅
+아래있는 선언을 끌어올리는것
+함수먼저
+funtion hello1(){
+	consloe.log('hello1';)
+}
+hello1()
+
+함수의 호출 먼저
+hellp2
+funtion(){
+	console.log('hello2')
+}
+
+자바스크립트에선 둘다 정상 작동
+
+
+var도 호이스팅
+age = 6;
+age++
+consloe.log(age);
+
+var age;
+
+
+
+
+consle.log(name);
+name = 'mark';
+console.log(name);
+var name = 'woong'
+여기서 var name만 위로 올라간다 선언부만 위로 올라가게된다.
+
+
+
+4.자바스크립트 데이터 타입
+자료형
+
+값에 따라 변수가 가지고 있는 타입이 달라지게된다
+
+기본타입과 객체타입이 있따.
+//Boolean
+true false가있고
+const isTrue = true;
+const isFalse = false;
+console.log(typeof isTrue)
+typeof 로 타입을 알수 있다.
