@@ -111,3 +111,8 @@ const isTrue = true;
 const isFalse = false;
 console.log(typeof isTrue)
 typeof 로 타입을 알수 있다.
+
+
+
+이번 교육을 받으며 html css그렇고 js문법도 그렇고 공부했는데도 완벽하게 하지 않아 모르는 부분이 많았다.
+내가 기초가 많이 부족하다는 걸 느끼며 이번 교육을 통해 기초를 완벽히 정리해야 겠다,
