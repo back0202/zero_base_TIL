@@ -1,0 +1,247 @@
+viewport
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+반응형 웹사이트를 제작하기 위해서 알아야하는 개념
+반응형으로 제작하지 않으면 모바일화면에서 pc화면일때랑 똑같은
+형태유지 비율만 축소된 웹페이지가 나온다.(그러니까 글자크기, 이미지만 작아진다고, 그러면 보는데 풀편)
+ PC화면에서 보이는 내용이 모바일 기기에서 작아져 버리는 이유는 PC화면과 모바일 화면의 
+픽셀 표현 방법이 다르기 때문(뭐가 다름?)
+웹 사이트를 제작할 때 뷰포트를 지정하면 접속한 기기 화면에 맞춰 픽셀을 확대하거나 축소해 
+표시할 수잇음. 뷰포트가 의미하는 것은 스마트기기 화면에서 실제 내용이 표시되는 영역 
+모바일 기기에 적합한 사이트를 제작했다고 해도 이 뷰포트를 지정해주지 않으면 웹사이트의 글자들이 매우 작게 표시되는 경우가 생김
+이는 모바일에서 웹사이트를 여는 브라우저(사파리나 크롬 등)들의 기본 뷰포트 너비가 980px이기
+ 때문 그러나 실제 스마트폰에서는 그것보다 훨씬 작은 너비로 화면을 표시하기 때문에 문제가
+ 되다.  따라서 웹 사이트를 만들 때 뷰포트에 대한 설정을 해줘야 반응형 웹사이트를 제대로 
+동작시킬 수 있다
+ HTML의 meta 태그를 사용하여 지정
+<meta name="viewport" content="속성=값, 속성=값...">
+content 속성의 종류
+width 뷰포트 너비
+height 뷰포트 높이
+user-scalable 확대축소가능 여부
+yes 또는 no 기본 값을 가진다.
+initial-scale 초기 학대축소 값
+initial-scale=1.0
+브라우저에서 페이지를 처음 로드할 때 확대,축소가 되지 않은 원래 크기 사용 0~10 사이의 값을 
+가진다
+minimum-scale 최소 학대축소값
+최소 크기 지정 0~10 . 기본값 0.25 
+maximum-scale 최대학대축소 값
+최대 크기 지정 0~10 . 기본값 1.6
+
+속성 지정 예
+<meta name="viewport" content="width=device-width, initial-scale=1">
+웹 페이지의 뷰포트 너비를 스마트폰 너비에 맞추고(width=device-width), 
+초기 화면 배율을 1로 지정한것 가장 흔한 뷰포트 지정 방법
+기기에 맞게 대응하는 반응형 웹 사이트를 제작 가능
+
+픽셀(pixel) : 화면 이미지 구성의 최소 단위
+
+따라야 할 몇 가지 규칙
+큰 고정 너비 요소를 사용하지 않는다
+뷰포트보다 넓은 너비로 표시되면 뷰포트가 수평으로 스크롤될 수 있다
+100% 상대적 너비 값을 사용하는 것이 좋음
+
+출처: https://ahngim.tistory.com/138 [@안김]
+
+출처https://penguingoon.tistory.com/129
+
+
+
+ 
+적응형웹
+pc버전과 모바일 버전2개를 만들었다. 단점이 2개를 유지보수 해야한다.
+반응형 웹이 만들어 지면서 하나만 유지보수하면 되는 장점이 생김
+반응형 웹인지 확인 하는방법은 개발자 도구 들어가서 창을 키우고 줄이면 알수있다.
+디버깅을 할때는 실제 디바이스 환경에서 하는게 정확함. 개발자 도구를 통해보면
+실제랑 차이가 있다는 말인가?(모르겠음)
+이거다 하나의 html에서 css를 통해 하는거
+반응형 웹디자인을 부분적으로 사용 가능
+반응형 앱이 아니고 웹이구나. 웹사이트에서 하는거닌깐 웹이다.
+
+pc버전기준으로 tablet pc해상도와 mobile기기 해상도에 반응하는 웹만들기
+반응형 웹은 pc, mibile, tablet 환경을 모두 하나의 소스(css)안에서
+ 동작을 해야 하기 때문에 각각의 가이드를 따로 확인하는 것보다는 각각의 디자인이 
+어떤식으로 변화가 되어야  하는지에 대해서 생각을 해야함
+
+ 
+미디어 쿼리
+웹이 급격하게 발전하면서 다양한 미디어 기기들이 웹을 지원하고 있다
+그에 맞춰 대부분의 웹 사이트들이 반응형으로 제작되고잇음
+미디어 쿼리는 반응형 웹 사이트 제작에 반드시 필요한 기술
+수업의 목적은 미디어쿼리 syntax(구문)에 대해 정확히 이해하고 사용하는 것
+미디어퀴리는 각 미디어 매체에 따라 다른 스타일(css style)을 적용할 수 있게 만드는 것
+미디어 매체는 모니터와 같은 스크린 매체, 프린트, 스크린 리더기와 같은 것
+ 동일한 웹 페이지를 다양한 환경의 사용자들에게 최적화된 경험을 제공
+ w3h는 css2의 미디어 타입을 확장하여  css3 미디어쿼리를 발표
+이 미디어 쿼리로 인해 웹 사이트를 제작함에 있어 이전의 정적인 고정 레이아웃 웹 사이트에서
+동적으로 반응하는 반응형 웹 사이트로  패러다임이 새롭게 변화하였다
+3나왔고 4는이제 나온다. 그래서 못쓰는 타입과 특성들 존재
+
+@media(at media)
+
+미디어 쿼리는 css2 media types을 확장했기 때문에 선언 방법은 동일
+@media mediaqueries { /* style rules  */ }
+@media 이제부터 미디어 쿼리를 시작한다는 뜻
+그 뒤에 미디어 쿼리 구문(위 코드의 mediaqueries) 이 나오고 이어서 중괄호( { } )를 이용해서 스타일 규칙이 들어간다
+미디어 쿼리 구문은 논리적으로 평가되며 참이면 뒤에 나오는 스타일 규칙이 적용 거짓이면 무시
+미디어 쿼리 구문은 미디어 타입과 미디어 특성(media features)으로 이루어져 있다
+
+ 미디어 타입
+
+all, braille, embossed, handheld, print, projection, screen, speech, tty, tv
+알아야 할 타입은 all, print, screen 정도 screen이 거의 대부분사용
+화면을 출력하는 디스플레이가 있는 미디어들은 전부 screen에 속하기 때문에 현실적으로 고려해야하는 미디어들은
+전부 여기에 해당
+print 타입도 간혹 사용. 실습할 때 다룬다
+all 타입은 모든 미디어에 적용되는 타입 미디어를 구분하는 용도가 아니기 때문에 유용하게 사용되지않음
+
+미디어 타입
+
+all, braille, embossed, handheld, print, projection, screen, speech, tty, tv
+알아야 할타입은 all, print, screen 정도 그 중에서도 screen이 거의 대부분사용
+화면을 출력하는 디스플레이가 있는 미디어들은 전부 screen에 속하기 때문에 현실적으로 고려해야하는 미디어들은
+전부 여기에 해당
+print 타입도 간혹 사용이 됨 실습할 때 다룬다
+all 타입은 모든 미디어에 적용되는 타입 미디어를 구분하는 용도가 아니기 때문에 유용하게 사용되지안음
+
+ 
+
+미디어 특성
+width, height, device-width, device-height, orientation, aspect-ratio, device-aspect-ratio, color, color-index, monochrome, resolution, scan, grid
+알아야 할 특성은 width와 orientation 정도
+대부분 width쓴다
+
+width는 뷰포트의 너비, 즉 브라우저 창의 너비(스크린의 크기 아님)
+orientation은 미디어가 세로모드인지 가로모드인지를 구분
+미디어 쿼리에서는 이구분을 width와 height 특성의 값을 비교해서 height가 width보다 같거나 크면 세로모드
+반대는 가로모드 
+세로모드는 portrait, 가로모드는 landscape 키워드와 매칭
+
+
+미디어 쿼리 level 4
+수업은미디어 타입과 미디어 특성은 CSS3 미디어 쿼리 표준 명세를 기준으로 작성되었다
+현재 미디어 쿼리 level 4가 CR(유력 후보안) 단계
+해당 문서에서 미디어 타입 대부분과 미디어 특성 중 일부 속성이 폐기 예정
+
+
+미디어 쿼리 Syntax
+
+media_query_list 
+ : S* [media_query [ ',' S* media_query ]* ]?                      S*은공백에 관한표시 없다고 봐도됨
+ ;                                                                          @media하고 뒤에 아무것도 없이 {}바로 나올수 있음
+media_query
+ : [ONLY | NOT]? S* media_type S* [ AND S* expression ]*        expression은 미디어 특성이들어간다
+ | expression [ AND S* expression ]*           and소문자로 써도되고 소문자가 더 많이 쓰인다.     sssss and aaaaa and aaaa이렇게 연속적으로 쓰일수 있다
+ ;				@media 미디어타입없이 표현식을 적고 and           온리와 낫은 미디어 타입앞에만 붙지 표현식앞에는 붙을수 없다
+expression
+ : '(' S* media_feature S* [ ':' S* expr ]? ')' S*      ''안에 있는 문자가 구문에 그대로 들어가야한다
+ ;				(특성이름과: 값)
+위 코드는 CSS3 미디어 쿼리 표준 명세에 나와 있는 Syntax 부분 알아야 할 부분만 적어놓았다.강의에서알아야할부분
+				
+참고로 Syntax는 전부 이해할 필요는 없지만 일부 기호는 알아두면 좋다
+
+[ a ] : a가 나올 수도 있고 나오지 않을수도 있따
+a | b : a or b 둘 중에 하나 선택
+"|"는 파이프 라인 기호로 키보드 역슬래시(\) 키를 Shift 키를 누른 채로 누르면 나옴
+a? :  a가 0번 나오거나 1번만 나올 수 있음
+a* : a가 0번 나오거나 그 이상 계속 나올 수 있음
+media_type : all, screen, print 등 명세에 정의된 미디어 타입
+media_feature : width, orientation 등 명세에 정의된 미디어 특성
+
+
+ Syntax를 요약하면
+
+media_query_list
+    : 여러개의 미디어 쿼리로 이루어진 리스트로 작성 가능, 쉼표를 이용해서 구분
+
+media_query
+    : A 형태 - 미디어 타입에 and 키워드를 이용해서 미디어 표현식을 붙일수있다
+                    미디어 타잎 앞에는 only 또는 not 키워드가 올수있다
+                    미디어 표현식은 생략 가능하기 때문에 미디어 타입 단독으로 사용될수 있다
+	미디어 표현식 단독으로 사용가능
+    : B 형태 - 미디어 타입 없이 미디어 표현식이 바로 나올 수 있다(미디어 타입이 명시되지 않으면 all로 간주)
+                   미디어 표현식은 and 키워드를 이용해서 계속해서 나올수 있다
+
+expression
+    : 미디어 표현식은 괄호로 감싸야 하며, 특성 이름과 해당하는 값으로 이루어 진다 이름과 값은 : 기호로 연결
+      값이 없이 특성 이름만으로도 작성가능
+
+ 
+
+min-/max- 접두사
+
+미디어 특성은 이름 앞에 min- 또는 max- 접두사르 붙일수 있다
+
+실제로 반응형 사이트를 제작할 때는 보통 접두사를 붙여서 사용
+
+접두사를 붙이지 않고 사용하는 경우 대부분 효율적이지 못하기 때문
+
+예를 들어 대부분의 반응형 사이트는 width 특성을 이용하는데 접두사 없이 width: 00px 이라고 선언하면
+
+정확히 뷰포트의 크기가 00px 에서만 적용되기 때문에 다양한 기기들을 대응하기 힘듬
+
+ 
+
+그래서 접두사를 사용하여 범위를 지정하게 되면 훨씬 간결하게 반응형 사이트를 제작할수있다
+
+ 
+
+예제 코드
+
+
+@media screen { ... }
+    : 미디어 타입이 screen이면 적용
+
+프리픽스가 붙지못하는 특성에는 orientation, grid, scan.   이세가지는 값으로 특정키워드가 들어가기 떄문, orientation은 뷰포트의 길이가 세로로 길면 portrait.
+가로로 긴 형태이면 landscape가 들어간다
+@media screen and (min-width: 768px) { ... }        특성에 붙일수 있는 프리픽스는 min, max두개, 대부분 붙여쓴다. 왜냐하면 붙여쓰지 않으면 제한적이라.프리픽스는 특성에 값에 숫자로 들어간 곳에는 모두 사용가능
+    : 미디어 타입이 screen이고 width가 768px 이상이면 적용된다. 두개중 하나라도 만족하지 않으면 거짓
+
+@media (min-width: 768px) and (max-width: 1024px) { ... }
+    : and는 연결된 모든 표현식이 참이면 적용(and 키워드는 연결된 부분이 모두 참이어야 적용)
+
+@media (color-index)         미디어 타입이 명시되지 않으면 all 
+    : 미디어 장치가 color-index를 지원하면 적용
+
+@media screen and (min-width: 768px), screen and (orientation: portrait), ...
+    : 쉼표로 연결된 미디어 쿼리 중 하나라도 참이면 적용( and 키워드와 반대라고 생각)
+
+@media not screen and (min-width: 768px)                  예전에는 not자리에 only키워드도 썼는데 이젠 안쓴다. 적어도 변화가 없음
+    : not 키워드는 하나의 media_query 전체를 부정
+    : (not screen) and (min-width: 768px) 잘못된 해석
+    : not (screen and (min-width: 768px)) 맞는 해석
+    : @media not screen and (min-width: 768px), print
+       첫 번째 미디어 쿼리에만 not 키워드가 적용 두 번째 미디어 쿼리(print)에는 영향이 없다
+
+
+
+미디어 쿼리 선언 방법
+
+미디어 쿼리를 선언하는 3가지 방법
+
+참고로 @media를 이용한 방법을 가장 많이 사용하며 나머지 2가지 방법은 거의 안씀
+
+@media screen and (color)
+    : CSS 파일 내부에 또는 <style> 태그 내부에 사용 대부분의 경우사용
+
+<link rel="stylesheet" media="screen and (color)" href="example.css">
+   : <link> 태그의 media 속성에 미디어 쿼리를 선언 미디어 쿼리가 참이면 뒤에 css 파일 규칙이 적용
+	screen and (color)이 부분이 거짓이라도  href="example.css"다운은 받는다
+
+@import url(example.css) screen and (color);    사용잘 안함(CSS 파일이 많고 대규모 사이트를 개발할 때는 @import 구문보다 <link> 태그를 주로 사용
+ 사이트를 만들다 보면 CSS 파일이 상당히 많아지기 때문에 @import 구문보다 안정적이고 빠르기 때문에 <link> 태그를 사용권장)
+    : CSS 파일 내부에 또는 <style> 태그 내부에 사용가능 @import문 뒤에 미디어 쿼리를 선언하면 된다
+
+
+
+
+모바일과 pc의 픽셀 표현방법 차이
+웹페이지는 width:600px기준으로 페이지를 그린다.
+모바일이 이 기준으로 작업하면 화면에 담기지 못하고 초과하거나, 너무 세세하게 보이는 경우가 있다.
+그래서 애플이 이 문제를 해결하고자 스마트폰에 제대로 된 웹환경 제공. 가상viewport 개념 도입
+이후 대부분의 모바일 브라우저 Virtual Viewport는 980px로 고정되었다.
+근데 이러면 가독성이 떨어지는 경우가 생겨서 익숙한 폰트 크기가 12~16px임을 감안하여, 장비별로 적정한 device-width가 정의
+이후 아이폰은 기본적으로 320px를 device-width 값으로 주고, meta 태그에 아래와 같이 viewport라는 옵션을 주어 가독성이 가장 좋은 Viewport를 갖기 시작했다.
+
+https://www.samsungsds.com/kr/insights/Responsive_web_1.html
+
