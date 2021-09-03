@@ -1,0 +1,121 @@
+   form 속성 추가
+   accept-charset 폼데이터 서버 전송시 문자 인코딩 지정
+   enctype 폼테이터 서버 전송시 인코딩 지정 method속성 post일때만
+   속성값  application/x-www-form-urlencoded 기본값
+   multipart/form-data 파일 업로드시
+   text/plain 특수문자는 인코딩 하지 않음
+
+   methood 전송시 http메소드 지정 기본값 get
+   get 이름과 값을 가진 한 쌈의 형식으로 url
+   url길이는 약 3000자
+   데이터가 보여짐
+   post
+   데이터 길이 제한 ㄴ
+   데이터 안보임
+
+   name
+
+   target
+   _blank 현재창 이외의 새로운 창
+   _self 기본값. 현제창에
+   _parent 현재창의 부모에, (기본창 바로 전창)
+   _top 현재창에서 결과 창으로 화면 이동
+
+   autocomplete 자동완성. 오페라 지원 ㄴ
+
+   novalidate 폼 유효성 검사 ㄴㄴ   블리언. 명시안하면 false
+   input type="email" @안쓰면 경고창 뜨는데 안뜨고 데이터 전송
+   익스플로러10, 파이어폭스, 오페라, 크롬만 사용가능
+   출처
+   https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=todoskr&logNo=220090895698
+
+
+   input type
+   color 색을 지정하는 박스만듬.16진수
+   file
+   추가로 사용할수잇는 속성 file을 쓸때
+   1.accept 입력받을수 있는 파일의 유형. 지정하지 않으면 모든파일
+   <input type="file" accept="image/jpeg, ~~~">
+   위에걸 지정해도 사용자가 파일 업로드시 모든파일 누르면 모두 가능
+    capture
+    accept에 이미지 비디오를 입력받은 경우 기기의 어떤 카메라를이용 할지
+    속성값으로 user:전면카메라 environment:후면카메라
+    files 
+    선택된 파일의 목록이 filelist객체형태로 files 속성에 저장
+    multiple 
+    사용자가 ctrl/shift 사용하여 한번에 여러가지 파일을 선택할지
+    아니면 한번에 하나의 파일만 선택할지
+    boolean 값
+    
+    required
+    폼이 서브밋될때 반드시파일이 선택되어야하는지 여부
+    required일때 파일을 선택안하고 보내면 파일선택하라는 멘트ㄸㅁ
+    블린값
+    <input type="file" required>
+    <input type="sumit" name="" id="">
+
+    value
+    사용자가 선택한 파일의 경로 값
+    여러 파일선택하면 첫번쨰 파일 경로 값 가짐
+    악의적인 사용방지할려고 모든 파일의 경로앞에 C:\fakepath\포함
+    
+    rearch
+    검색어 입력하는 폼
+    text로 만들수 있는데
+    리서치로 만들면 검색어 삭제 버튼 나옴
+
+    url
+    주소입력칸
+    text로 만들어도 되는데 
+    url로 만들면 유효성검사 할수 있다
+
+    속성
+    accpet
+    alt
+    autocomplete
+    autofocus
+    입력창 포커스를 어디에 둘지
+    capture
+    checked
+    dirname
+    서버로 보낼떄 서버의 텍스트방향성을 저장할 이름명시
+    <input name="ff" dirname="ff.dir">이름뒤에 .dir
+    disabled
+    form
+    formaction
+    다른 url로 보낼수 잇음
+    formenctype
+    서버 제출할때 인코딩 방식
+    formmethod
+    서버 제출할때 http메소드 명시
+    formnovalidate
+    서버 제출할떄 유효성 검사 ㄴㄴ
+    서브밋일때만 사용
+    블리언 명시하지않으면 false
+    연결
+    formtarget
+    서브밋 이미지일때만
+    서버에 제출된후 받은 응답데이터를 어디에 표시
+    list
+    height
+    width
+    max
+    min
+    maxlength
+    minlength
+    multiple
+    name
+    pattern
+    제출시 검사할댸 사용될정규 표현식
+    이떄 title쓰면 설명추가해서 사용자가 정확한 값 입력도움
+    date, email, password, search, tel, text, url일떄 제대로 동작
+
+    placeholer
+    readonly
+    required
+    size
+         email, password, tel, text의 크기
+    src
+    step
+    type
+    value
