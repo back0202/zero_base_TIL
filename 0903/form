@@ -53,8 +53,8 @@ input은 빈요소라 자식요소를 가질수 없음
 <label for="movie"></label>
     <optgroup label="animation">
         <select name="movie" id="movie" required>
-            <option >골라라</option> 옵션에 벨류값 설정안하면 내용이 벨류가 됨.아무깂더 설정인히거 ㅅ;ㅍㅇ,먄
-            벨류빈값. 벨류성정안하면 그대로 골라라가 전송됨
+            <option >골라라</option> 옵션에 벨류값 설정안하면 내용이 벨류가 됨.아무값도 설정안하면 됨
+            벨류빈값. 벨류설정안하면 그대로 골라라가 전송됨
             <option value="jootopoa" selected>주토피아</option> 기본설정 선택된 상태
         </select>
     </optgroup>
