@@ -1,0 +1,80 @@
+<input type="date">
+시간을 제외한 년월일.사용자에 따라 년이 나올수 있음. 달력나옴
+
+<input type="month">
+ 일을 제외한 년일
+
+week 주
+time  시간. 시계아이콘 나옴
+
+<input type="submit" value=""> 버튼처럼. 제출이란 단어를 쓰지 않았는데 나옴
+벨류를 쓰면 문구변경가능
+
+<input type="button" value=""> 빈버튼 만드는거
+<input type="reset" value=""> 초기화 버튼
+
+<input type="checkbox" checked> 조그만한 박스 여러개 나옴, 취미
+checked 자동으로 체크해주는거 미리
+
+<input type="radio" name="" value=""> 네임을 같은 이름으로 써야지 다른 레디오랑
+그래야지 동시선택이 안되게 할수있음  남녀 할때 사용 
+여기에 벨류쓰면 서버에 전송할때 검색창에 벨류이름 들어감
+다른애들은 name이름 들어감
+
+plaeholder text에 속성으로 넣어주면 힌트를 주는것
+<input type="text" placeholder="">
+<input type="text" autocomplete="on">자동완성 기능.
+<input type="text" required> 입력을 다 안하고 전송하면 오류메세지 뜬다
+readonly 읽기 전용. 전송은됨
+disabled 전송도 안됨
+
+<input type="number" min="" max="" maxlength="" minlength="">
+max minlength는 문자의 길이
+min max 숫자의 범위. 마이너스도 입력가능
+step 숫자의 간격.2로 입력하면 2씩올라가거나 내려간다
+
+
+
+button
+버튼을 만들 때 사용하며 submit, reset, button 3가지의 타입이 있습니다.
+인풋과 다른점은 안에 내용 넣을수 이서 
+인풋이미지는 버튼에 이미지 넣어
+<button type="submit|reset|button">ㅇㅇㅇ</button>
+name value들어감
+버튼타입 버튼은 눌렀을떼 아무기능 안됨. 자바랑 연결해서 사용
+따로 000에 입력하지 않으면 기본값 없음
+input은 잇음
+버튼은 자식요소를 가질수있기때문에 strong같은거 넣을수 있음. 이미지도 넣을수 잇음
+input은 빈요소라 자식요소를 가질수 없음
+버튼에 이미지를 넣는 경우 스크린리더기가 읽을 수가 없기 때문에 설명도 같이 들어가야
+
+
+
+<label for="movie"></label>
+    <optgroup label="animation">
+        <select name="movie" id="movie" required>
+            <option >골라라</option> 옵션에 벨류값 설정안하면 내용이 벨류가 됨.아무깂더 설정인히거 ㅅ;ㅍㅇ,먄
+            벨류빈값. 벨류성정안하면 그대로 골라라가 전송됨
+            <option value="jootopoa" selected>주토피아</option> 기본설정 선택된 상태
+        </select>
+    </optgroup>
+input하고 비슷하게 속성사용가능하나
+숫자가 아니기 떄문에 max min사용불가
+optiongroput은 옵션끼리 묶을때
+
+<label for="movie"></label>
+<input type="text" id="movie" list="movie-list">
+
+<datalist id="movie-list"></datalist>
+데이타리스트는 추천
+옵션과 다른점은 옵션은 선택한걸 수정이 불가한데
+데이타리스트는 수정가능
+
+
+<label for="comment"></label>
+<textarea name="comment" id="comment" cols="30" rows="10">
+    여기에 글쓰면 박스에 들어가는데 개행적용되고 앞에 뜰여쓰기까지 적용
+</textarea>
+rows 몇줄보여줄지
+cols 몇글자 영어기준. 폰트마다 다르기 때문에 가로는 css이용하는편
+rows는 사용많이함
