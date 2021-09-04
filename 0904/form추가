@@ -1,0 +1,28 @@
+<input type="date">
+브라우저마다 달력이 나올지 박스안에 날짜를치는 창이 나올지 다름
+
+
+<input type="month">
+ 일을 제외한 년월    데이트랑 같이 브라우저바다 나오는게 다름
+ , yyyy-mm 이렇게 나오고 value에도 1993 02 쓰면 그대로 초기 값으로 나옴
+ week 주 달력나옴(브라우저마다 다름) yyyy-몇번째주, month처럼 value로 초기값설정 가능
+time  시간. 시계아이콘 나옴, 시계박스나옴, 오전,시간,분     value로 초기값설정 가능, 14:04하면 오후2시4분나옴
+
+name은 서버 호출용 value 태그값
+
+<button type="submit" name="fruit" value="apple">사과</button>
+<button type="submit" name="fruit" value="banana">바나나</button>
+<button type="submit" name="fruit" value="orange">귤</button>
+name은 과일 처럼 묶어주는것, 서버에서 가져갈수 잇게 같은 거끼리 묶어준것, value는 그것에 이름 값 그태그에
+
+<optgroup label=""></optgroup> 제목처럼 됨
+
+<input list="fruitslist" name="fruits" id="fruits">
+<datalist id="fruitslist">
+  <option value="apple" label="사과">
+  <option value="banana" label="바나나">
+  <option value="grape" label="포도">
+  <option value="orange" label="오렌지">
+</datalist>
+왜 닫는 테그가 없나 했더니, 검색창처럼 나오고 거기에 문자 치면 자동완성처럼 옵션에 있는것들이 나온다
+수정가능하다
