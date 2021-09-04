@@ -1,0 +1,498 @@
+@charset "UTF-8";
+html{
+    font-family:  '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+body{
+    color: #000;
+}
+
+/* 헤더 */
+body{
+    min-width: 1000px;
+}
+
+.protfolio_wrap
+.portfolio_haeder{
+    background-color: #000;
+}
+.portfolio{
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    width: 1080px;
+    margin: 0 auto;
+    text-indent: 40px;
+    height: 120px;
+    line-height: 120px;
+}
+
+/* 메뉴 */
+.menu{
+    min-width: 1080px;
+}
+.menu_box{
+    display: flex;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.menu_a{
+    display: block;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #d1d1d1;
+    width: 322px;
+    text-align: center;
+    height: 32px;
+    line-height: 32px;
+    font-size: 16px;
+}
+.menu_list:hover{
+    font-weight: bold;
+    border-color: #454545;
+}
+.menu_list + .menu_list{
+    margin-left: 14px;
+}
+
+/* 메인 */
+.main{
+    margin: 40px;
+}
+.main_title{
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #454545;
+    width: 1000px;
+    margin: 0 auto;
+}
+.main_box{
+   width: 1000px;
+   margin: 0 auto;
+}
+.article_head{
+    border: 1px solid #d1d1d1;
+    background-color: #f7f7f7;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    padding-left: 15px;
+    line-height: 46px;
+    margin-top: 30px;
+    height: 46px;
+}
+.content_box{
+    border: 1px solid #d1d1d1;
+    border-top: none;
+    padding: 30px;
+}
+.content_head{
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+    padding-bottom: 14px;
+}
+.table_head{
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+    padding-bottom: 14px;
+    text-align: left;
+}
+
+/* 테이블 */
+.table_wrap{
+    width: 940px;
+    table-layout: fixed;
+    margin-bottom: 32px;
+}
+.table_wrap,
+.table_refund_wrap{
+    box-sizing:border-box;
+    border-collapse: collapse;
+}
+.table_wrap,
+.table_wrap th,
+.table_wrap td{
+    border: 1px solid #e4e4e4;
+    font-size: 12px;
+    color: #555;
+}
+.table_wrap th{
+    font-weight: bold;
+}
+.table_wrap td{
+    text-align: center;
+    height: 24px;
+    vertical-align: middle;
+}
+.X_large{
+    width: 170px;
+}
+.thead_section_col{
+    width: 150px;
+}
+.thead_section{
+    height: 36px;
+}
+.table_wrap thead th{
+    vertical-align: middle;
+    background-color: #fbfbfb;
+}
+.american_children{
+    vertical-align: middle;
+}
+.tah{
+    height: 36px;
+    vertical-align: middle;
+}
+
+
+
+
+
+.table_refund_wrap{
+    width: 940px;
+    table-layout: fixed;
+    font-size: 12px;
+    color: #555;
+}
+.table_refund_wrap thead{
+    background-color: #fbfbfb;
+}
+.table_refund_wrap th{
+    height: 32px;
+    vertical-align: middle;
+}
+.table_refund_wrap td{
+    vertical-align: middle;
+}
+.table_refund_wrap_f{
+    font-weight: bold;
+}
+.table_refund_wrap_tf{
+    border-top: 1px solid #a5a5a5;
+    border-bottom: 1px solid #e4e4e4;
+}
+.table_refund_wrap_th{
+    border-top: 2px solid #a5a5a5;
+    border-bottom: 1px solid #e4e4e4;
+}
+.table_refund_wrap thead th,
+.table_refund_wrap tbody td,
+.table_refund_wrap tfoot td{
+    text-align: right;
+    padding-right: 96px;
+}
+
+/* 폼 */
+.form_box{
+    border: 1px solid #e4e4e4;
+    background-color: #e4e4e4;
+    padding: 14px;
+}
+.join_form{
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+}
+.join_inform{
+    font-size: 12px;
+    margin-top: 12px;
+    margin-bottom: 24px;
+    width: 900px;
+    height: 24px;
+    color: #000;
+}
+.birth{
+    width: 298px;
+    margin-top: 12px;
+    margin-bottom: 24px;
+    height: 24px;
+    font-size: 12px;
+    color: #000;
+}
+
+.get_but{
+    border: 1px solid #08a600;
+    background-color: #4ec53d;
+    font-size: 12px;
+    color: #fff;
+    width: 190px;
+    height: 30px;
+}
+.phone_number{
+    width: 700px;
+    height: 24px;
+    margin-top: 12px;
+}
+.get_num_but{
+    width: 900px;
+    height: 24px;
+    margin-top: 7px;
+    margin-bottom: 24px;
+}
+.hobby_wrap{
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+.hobby_area{
+    margin-right: 75px;
+    font-size: 12px;
+    color: #000;
+}
+.join_textarea{
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+.en_bu{
+    border: 1px solid #08a600;
+    background-color: #4ec53d;
+    font-size: 16px;
+    color: #fff;
+    width: 900px;
+    height: 32px;
+}
+
+
+/* 리스트 */
+.project_box{
+    border: 1px solid #e4e4e4;
+    padding: 0 30px 30px;
+    margin-bottom: 30px;
+}
+.project_title{
+    font-size: 32px;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+.project_head{
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+}
+.project_exp_a{
+    font-size: 12px;
+    color: #559bfa;
+    margin-left: 4px;
+}
+.project_text{
+    font-size: 12px;
+    color: #000;
+    line-height: 20px;    
+    margin-bottom: 12px;
+}
+ 
+
+.search_box{
+    border: 1px solid #e4e4e4;
+    padding: 20px;
+    width: 250px;
+    margin-bottom: 60px;
+}
+
+.search_rank{
+    display: inline-block;
+    border: 1px solid #e0e0e0;
+    margin: 14px;
+    font-size: 10px;
+    color: #666; 
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    line-height: 17px;
+}
+.search_a{
+    text-decoration: none;
+    font-size: 12px;
+    color: #000;
+}
+.search_a:hover{
+    text-decoration: underline;
+}
+
+
+.shahdh_kkbox{
+    border: 1px solid #e4e4e4;
+    padding: 20px 30px;
+    line-height: 20px;
+    margin-bottom: 60px;
+}
+.kkbox_ul{
+    list-style: inherit;
+}
+.kkbox_sp{
+    font-size: 12px;
+    font-weight: bold;
+    color: #559bfa;
+}
+.kkbox_spt{
+    font-size: 12px;
+    color: #ec5336;
+}
+.kkbox_li{
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+}
+.kkbox_lit{
+    font-size: 12px;
+    color: #000;
+}
+.kkbox_a{
+    color: #559bfa;
+    font-size: 12px;
+}
+
+
+/* 뉴스 */
+.news{
+    display: flex;
+    border-bottom: 1px solid #e4e4e4;
+    padding-bottom: 20px;
+}
+.news_box{
+    margin-left: 7px;
+}
+.news_ba{
+    font-size: 14px;
+    color: #00c;
+    font-weight: bold;
+}
+.news_bp{
+    font-size: 12px;
+    color: #000;
+}
+
+
+.newspet{
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.newsdibox{
+    margin-top: 20px;
+    display: flex;
+}
+
+/* 웹툰 */
+.weptoonbox{
+    border: 1px solid #e4e4e4;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+.weptoon_list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.weptoon_list li{
+    line-height: 20px;
+}
+.weptoon_list li:hover{
+    text-decoration: underline;
+}
+.weptoon_list a{
+    text-decoration: none;
+}
+.weptoon_list li+li{
+    margin-left: 20px;
+}
+.weptoon_list li:nth-child(1){
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.weptoon_list li:nth-child(3n){
+    margin-right: 21px;
+}
+.weptoon_h{
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}
+.weptoon_hh{
+    font-size: 12px;
+    color: #000;
+}
+.weptoon_hk{
+    border: 1px solid #71b036;
+    background-color: #80c83d;
+    font-size: 10px;
+    color: #fff;
+   padding: 0 3px;
+}
+.weptoon_hs{
+    border: 1px solid #df4e28;
+    background-color: #ec5336;
+    font-size: 10px;
+    color: #fff;
+    padding: 0 3px;
+}
+/* 풋터 */
+.f{
+    border-top: 1px solid #d1d1d1;
+   padding: 40px 0;
+}
+.fa{
+    text-align: center;
+    line-height: 20px;
+}
+.fap{
+    font-size: 12px;
+    color: #999;
+}
+.fapp{
+    font-size: 12px;
+    color: #000;
+}
+
+
