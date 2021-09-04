@@ -84,6 +84,9 @@ label을 쓰는 이유는 제목처럼됨ㅣ
   <option value="grape" label="포도">
   <option value="orange" label="오렌지">
 </datalist>
+왜 닫는 테그가 없나 했더니, 검색창처럼 나오고 거기에 문자 치면 자동완성처럼 옵션에 있는것들이 나온다
+수정가능하다
+
 
 
 <label for="comment"></label>
