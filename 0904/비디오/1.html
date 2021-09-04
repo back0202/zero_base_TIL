@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- h들은 각 순서별 크기가 다르기 때문 -->
+    <h1>다람쥐 헌 쳇바퀴에 타고파</h1>
+    <h2>다람쥐 헌 쳇바퀴에 타고파</h2>
+    <h3>다람쥐 헌 쳇바퀴에 타고파</h3>
+    <h4>다람쥐 헌 쳇바퀴에 타고파</h4>
+    <h5>다람쥐 헌 쳇바퀴에 타고파</h5>
+    <h6>다람쥐 헌 쳇바퀴에 타고파</h6>
+    
+    <!-- ul은 순서가 없는 리스트요소고 문자 앞에 블랫포인트?가 나온다
+         ol은 순서가 있는 리스트요소라 앞에 숫자가 나온다 -->
+    <ul>
+        <li>사과</li>
+        <li>오렌지</li>
+        <li>포도</li>
+        <li>체리</li>
+    </ul>
+
+    <ol>
+        <li>가지</li>
+        <li>감자</li>
+        <li>당근</li>
+        <li>대파</li>
+    </ol>
+
+    <!-- br을 사용하지 않고 input을 못띄우나?. div로 묶었을때 띄어지는줄 알앗는데-->
+        <form action="ww">
+            <input type="text" minlength="6" required><br>
+            <input type="text" maxlength="20" required><br>
+            <input type="password" placeholder="비밀번호를 입력해주세요">
+            <input type="submit">
+        </form>
+
+        <!-- table에 속성으로 border주면 보더나옴. scope는 시각상으로 변화는 없고 리더같은 곳에서 유용하게 사용.
+            내가 어디를 포함하고 잇는지. 속성으로 width쓸수있음. span으로 합쳐주면 다음행에서는 아예적지 않는다
+            th에는 scope필수. width border cellpadding cellspacing은 html5에서 없어짐 css로 해야함
+            행그룹테그 tbody thead tfoot 사용하지 않아도 오류는 없음
+            html5에 나온 테이블 열그룹 colgroup col. 열을 그룹으로 지어주는거 col에는 span이 있다 몇줄 묶어줄것인지
+        -->
+        <table border="1">
+            <caption>주식회사 HTML매출</caption>
+            <thead>
+                <tr>
+                    <th rowspan="2" scope="col" width="50">/</th>
+                    <th colspan="2" scope="colgroup">반기</th>
+                    <th rowspan="2" scope="col" width="50">합계</th>
+                    <th rowspan="2" scope="col" width="50">비고</th>
+                </tr>
+                    <th scope="col">전반기</th>
+                    <th scope="col">후반기</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">2019</th>
+                    <td>10억</td>
+                    <td>10억</td>
+                    <td>30억</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">2020</th>
+                    <td>22억</td>
+                    <td>33억</td>
+                    <td>55억</td>
+                    <td rowspan="2">1)</td>
+                </tr>
+                <tr>
+                    <th scope="row">2021</th>
+                    <td colspan="2">집계중</td>
+                    <td>집계중</td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+        <p>
+            <var>&#8747;</var><sub>0</sub><sup><var>t</var></sup> 2<sup>5</sup>&#215;<i>log</i><sub>2</sub>&#215;
+        </p>
+</body>
+</html>
+
+
