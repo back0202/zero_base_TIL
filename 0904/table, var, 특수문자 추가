@@ -1,0 +1,37 @@
+<p><var>x</var> = <var>y</var> + 2</p>
+    var는 변수 기울임
+    수학표현또는 프래그램에서의 변수 이름
+    글씨체 기울이기이지만 브라우저마다 다름
+    요소
+    <code></code>
+    <kbd></kbd>
+    smap html출력예시 요소
+    비슷한거 em i q
+
+
+특수문자 사용법
+텍스트처럼 그냥 테그 없이 적으면 됨.
+
+th에 디폴트 값은 굵은 글씨에 가운데 정렬 기본값
+<table>
+    <caption></caption> 표가운데 위에 위치. css caption-side: bottom 을 사용하여 제목 이동 가능. css없이 밑에다 쓰면 안됨.무도건 위. text-aligh일 사용하여 정렬가능
+    <colgroup>
+        <col span=""> width, border, background을 넣을때 사용. thead에 th들 열로 묶어서 앞에 3개 지정할때. span은 열몇게 묶을지    
+    </colgroup>
+    <thead>
+        <tr>
+            <th scope="" colspan="" rowspan=""></th> scope는 내가 어디셀을 포함하고 잇는지,th에 scope필수.
+        </tr>
+    </thead>    
+    <tbody>
+        <th scope=""></th>
+        <td colspan="" rowspan=""></td>
+    </tbody>
+    <tfoot>
+        <td></td>
+    </tfoot>
+</table>
+html5에서는 align, bgcolor, border, cellpadding, cellspacing, frame, rules, summary, width 속성사용안함
+css로 꾸며준다.
+테이블이 피규얼안에 잇다면 캡션 대신 피규얼 캡션을 써라
+복잡한 표 같은경우 id와 headers속성 이용
