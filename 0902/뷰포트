@@ -95,14 +95,6 @@ all, braille, embossed, handheld, print, projection, screen, speech, tty, tv
 print 타입도 간혹 사용. 실습할 때 다룬다
 all 타입은 모든 미디어에 적용되는 타입 미디어를 구분하는 용도가 아니기 때문에 유용하게 사용되지않음
 
-미디어 타입
-
-all, braille, embossed, handheld, print, projection, screen, speech, tty, tv
-알아야 할타입은 all, print, screen 정도 그 중에서도 screen이 거의 대부분사용
-화면을 출력하는 디스플레이가 있는 미디어들은 전부 screen에 속하기 때문에 현실적으로 고려해야하는 미디어들은
-전부 여기에 해당
-print 타입도 간혹 사용이 됨 실습할 때 다룬다
-all 타입은 모든 미디어에 적용되는 타입 미디어를 구분하는 용도가 아니기 때문에 유용하게 사용되지안음
 
  
 
@@ -241,7 +233,7 @@ min-/max- 접두사
 그래서 애플이 이 문제를 해결하고자 스마트폰에 제대로 된 웹환경 제공. 가상viewport 개념 도입
 이후 대부분의 모바일 브라우저 Virtual Viewport는 980px로 고정되었다.
 근데 이러면 가독성이 떨어지는 경우가 생겨서 익숙한 폰트 크기가 12~16px임을 감안하여, 장비별로 적정한 device-width가 정의
-이후 아이폰은 기본적으로 320px를 device-width 값으로 주고, meta 태그에 아래와 같이 viewport라는 옵션을 주어 가독성이 가장 좋은 Viewport를 갖기 시작했다.
+이후 아이폰은 기본적으로 320px를 device-width 값으로 주고, meta 태그에  viewport라는 옵션을 주어 가독성이 가장 좋은 Viewport를 갖기 시작했다.
 
 https://www.samsungsds.com/kr/insights/Responsive_web_1.html
 
