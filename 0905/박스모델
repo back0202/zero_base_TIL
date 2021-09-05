@@ -1,0 +1,13 @@
+
+박스모델
+content html요소의 내용이 담기는 영역. width heigth 가지고 영역을 정리할수 있다. 인라인은 내용가지고 width와 height를 가진다
+padding 
+
+width와 height는 상속 ㄴㄴ. 지정안하면 auto값이 들어간다
+
+min-width 상속 ㄴㄴ. 300px이하로 줄어들고 싶지 않을때
+max랑 htigt도 동일
+
+
+
+margin 단축속성. 상속ㄴ. margin:%는 부모의 마진이 아니라 부모의 width에 따라 
