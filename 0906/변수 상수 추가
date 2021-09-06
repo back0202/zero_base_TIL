@@ -1,0 +1,114 @@
+function hello1(){     function함수     hello1은 이름(매개변순)
+  console.log('hello1') ;        'hello1'문자열
+} 이름이 hello이 함수를 선언
+
+console.log(hello1, typeof hello1)       결과 function:hello1    
+
+함수도 객체의 한 종류다
+
+function hello2(name){ name은 함수의 바디안에서 사용할 이름
+  console.log('hello', name);
+}   함수를 호출할때 값을 지정
+
+함수의 결과를 돌려주는 것을 함수의 리턴
+
+function hello3(name){
+  return `hello3 ${name}`;   함수를 실행하면 업어지는 값
+}
+
+console.log(hello3(mark));
+hello3 'mark'나옴
+
+
+
+이름이 hello1인 함수를 선언
+const hello1 =function(){
+  console.log('hello1');
+};
+console.log(hello1, typeof hello1);
+
+결과 function: hello1  'function'
+
+함수의 매개변수
+함수를 호출할때 값을 지정
+const hello2 = function(name){
+  console.log('hello2', name)
+};
+
+함수의 리턴
+함수를 실행하면 얻어지는 값
+const hello3 =function(name){
+  return `hello3 ${name}`;
+};
+
+이름을 함수 뒤에 붙여서 만드는 방식을 선언적funtion과
+익명함수를 만들어 특정이름에 할당하는 방식
+
+
+
+
+
+
+js 동적인
+함수는 특정 코드를 하난의 명령어로 실행할수 있게 해주는 기능
+파라미터가 주어졌을때 파라미터를 처리해서 결과를 만들어 낼수 있다
+function add(a, b)    {          add자리는 이름      (파라미터는 input이다 넣는값)
+  return a+b;                리턴 결과값
+}
+const sum=add(1,2)
+console.log(sum)
+
+function hello(name){
+  console.log('hello,' + name + '!');
+}
+hello('velopert')
+
+
+
+
+
+
+특정 내용을 출력하는거
+console.log('hello javascript!');
+
+변수와 상수는 특정이름에 특정값을 담을때 사용
+let sss =1; 선언 특정이름에 특정값을 넣는것
+let sss =1; 똑같은 이름이로 선언불가, 다른 블럭범위에서는 가능
+
+var let 비슷하지만 선언할수 잇는 범위가 다르다
+인터넷 익스플러워 9 10은 let 과 const 가 없다
+하지만 바벨이란것을 통해 구형브라우저에서도 돌아가게 변환작업을 거친다
+var이제 쓸일 없다 몰라도 된다. 근데 다른 강의에서는 var가 함수변수?라고 했는데
+
+let velue = 1    =대입연산자
+산술연산자 = - * /
+a++ 1을 더 해줘라
+let a = 1
+console.log(a++)     1    보여준 다음 계산하느냐
+console.log(a)      2
+console.log(++a)    3    꼐산한다음 보여주느냐
+
+
+a+=1   a에다 1을 더하갰다
+-=
+*=
+/=
+
+
+논리연산자
+//주석
+!
+&&
+||
+우선순위
+
+비교연산자
+두값을 비교할떄는 === 이퀄 사인을 사용한다
+const a = 1;
+const b = 2;
+const equres = a === b;
+console.log(equres);
+==와 ===차이
+===는 타입까지 비교한다. ===써라
+!== 낫이퀄스. 결과값이 다르면  true
+!=이것도 작동을 하긴한다
