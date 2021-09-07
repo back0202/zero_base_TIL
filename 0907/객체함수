@@ -1,0 +1,184 @@
+객체
+우리가 어떤 값을 선언하게 될떄 
+하나의 이름에 여러개 값을 넣을수 있게 해줌
+
+const dogName = '멍멍이';
+const dogAge = 2;
+
+console.log(dogName);
+console.log(dogAge);
+
+객체를 이용하면
+                            아 그거네 const dog = '멍멍이' 이렇게 지정헤 줫는데 객체는 {}쓰네
+const dog = {
+  name:'멍멍이';,         여기는 코드 블럭이 아니라서 넣고 싶은 값을 넣을수 ㅇㅆ다
+  age:2;,               문자 숫자 블리언 또다른 객체를 넣을수 있다. 입력할때마다 쉼표를 입력해 줘야한다,
+  cute: true,           이름:값이들어가게 되는다
+  sample: {             key; velue
+    a: 1,               키값에는 공백이 있으면 안된다. 쓸거면''을써서 감싸주라
+    b: 2
+  }
+}
+console.log(dog)하면 {위에거 나오고}
+console.log(dog.name)하면 멍멍이나온다
+
+함수의 파라미터에서도 객체를 받아올수 있따
+const ironMan = {
+  name: '토니스타크',
+  actor: '로버트 다우니 주니어',
+  alias: '아이언맨'
+};
+
+const captiainAmerica = {
+  name: '스티븐 로저스',
+  actor: '크리스 에반스',
+  alias: '캡틴아메리카'
+};
+
+funtion print(hero){
+  const text = `${hero.alias}(${hero.name}) 역할을 맡은 배우는 ${hero.actor} 입니다`;
+  console.log(text);
+}
+
+print(ironMan);
+print(captiainAmerica);
+
+비구조화 할당, 객체구조분해
+funtion print(hero){
+  const {alias, name, actor} = hero;
+  const text = `${alias}(${name}) 역할을 맡은 배우는 ${actor} 입니다`;
+  console.log(text);
+}
+
+funtion print( {alias, name, actor}){
+  const text = `${alias}(${name}) 역할을 맡은 배우는 ${actor} 입니다`;
+  console.log(text);
+}
+
+const {name} = ironMan;
+console.log(name);
+
+
+
+
+객체안에 함수 넣기
+const dog = {
+  name: '멍멍이',
+  sound: '멍멍',
+  say: funtion say(){               say생략가능, funtion생략가능 say: ()=>화살표로 만들면 작동안함. 화살표는 this가 자기자신을 가리키지 않는다.
+    console.log(this.sound);        여기서  this는 함수가 위치한 개게 자기자신을 의미한다.dog를 가리킨다
+  }
+  {
+  dog.say()   멍멍 나온다
+
+  cosnt cat ={
+    name: '고양이';,
+    sound: '야옹';
+  };
+cat.say=dog.say;
+cat.say();하면 야옹이 된다. cat.say와 dog.say를 연결하면 cat에는 없는 say가 연결된다.
+
+const catsay = cat.say;
+catsay() 호출하게 되면 아무것도 안뜬다. 
+
+
+
+cosnt numbers = {
+  a: 1,
+  b: 2
+}
+numbers.a = 5;
+console.log(numbers.a)    5가나옴
+
+getter함수와 setter함수는
+특정값을 바꾸려고 하거나 특정값을 조회 할때 우리가 원하는 코드를 실행 할수 있다.
+
+cosnt numbers = {
+  a: 1,
+  b: 2
+  get sum (){
+    console.log('sum함수가 실행됩니다');
+    return this.a + this.b;
+  }
+}
+console.log(numbers.sum); 하면  sum함수가 실행됩니다 3. sum()이렇게 호출한게 아니라 조회만 했을 뿐인데 함수가 실행된다.
+numbers.b = 5;
+console.log(numbers.sum);  sum함수가 실행됩니다 6나옴
+
+갯터함수를 만들때는 앞에더 get을 적는다
+갯함수에서는 어떤 값을 반환해 줘야한다
+
+
+setter함수
+const dog{
+  _name: '멍멍이',     _한이유는 set함수랑 겹치지 않게 하기 위해서          키랑 함수랑 이름이 같을순 없다.하지만 set get은 이름이 같을순 있다
+  set name(value){            파라미터를 무조건 설정해줘야함
+    console.log('이름이 바뀝니다' + value);
+    this._name = value;       벨류를 받아왔을때 _name을 바꾸겠ㄷ
+  }
+}
+console.log(dog._name); 멍멍이 나온다         dd
+dog.name = '뭉뭉이';
+console.log(dog._name) 뭉뭉이 나온다
+
+const dog객체에다가 get name(){
+  console.log('-name을 조회하비다');
+  return this._name
+}
+을 넣으면     dd이부분에 console.log(dog.name)  _name안 써도 됨
+왜냐하면 dog.name을 조회하면 
+설명힘들다 알아서 이해햏라
+결과는 
+_name을 조회합니다
+멍멍이
+이름이 바뀝니다 뭉뭉이
+뭉뭉이
+
+
+
+const numbers = {
+  _a: 1,
+  -b: 2,
+  sum: 3,
+  calculate(){
+    console.log('calulate');
+    this.sum = this._a + this._b;
+  },
+  get a(){
+    return this._a;
+  },
+  get b(){
+    return this._b;
+  },
+  set a(value){
+    this._a = value;
+    this.calculate(); 이렇게 하면 업데이트를 해준다.
+  },
+  set b(value){
+    this._b = value;
+    this.calculate();
+  }
+}
+
+console.log(numbers.sum);   3
+numbers.a = 5;        a값을 설정하게 될때 칼큘레이트가 실행 calculate뜬다
+numbers.b = 7;
+
+이걸 get함수로 만쓰면
+const numbers = {
+  a: 1,
+  b: 2,
+  get sum(){
+    console.log('sum');
+    return numbers.a + numbers.b;
+  }
+};
+console.log(numbers.sum);
+numbers.a = 5; 
+numbers.b = 7;
+numbers.a = 9;
+console.log(numbers.sum);
+비효율적이다 이건 
+갵터함수는 특정 값을 조회할떄마다 어떤 함수를 호출한ㄴ걱고
+셋터함수는 특정값을 설정할때마다 벨류를 파라미터로 받아와서 특정값을 설정할수도 있고, 코드를 실행할수도 있다
+
