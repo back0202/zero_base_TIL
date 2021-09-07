@@ -1,0 +1,155 @@
+배열
+객체는 한변수 상수안에 여러가지 정보를 담기위한
+
+배열은 여러가지  들어있는 리스트
+() 소골호
+{} 중괄호
+[] 대괄호
+
+const array = [1, 2, 3, 4]배열을 사용할때는 대돨호 쓴다. 숫자 '' {} []도 넣을수 있다
+console.log(array);  [1,2,3,4]
+console.log(array[]); [안에 몇번째 항목선택하면 배열안에 있는 것들이 나온다]. 0부터 시작. 4를 하면 언디파인 나옴
+
+const objects=  {
+  {name: '멍멍이'},    ,써줘야함. ;입력해도 되고 안해도 됨
+  {name: '야옹이'}
+
+}
+
+
+배열 내장함수
+.push() 배열의 새로운 함목을 추가 할때
+array.push({
+  name: '뭉뭉이';
+})  
+
+배열의 크기     몇개가 들어있는지
+console.log(objects.length)
+
+
+
+
+
+반복문
+특정 작업을 반복적으로 할떄
+시작->조건확인 트루면->구문실행 ->구문이 끝나면 다시 조건확인           이걸반복하는게 반복문
+            폴스면->끝
+
+
+for (let i = 0; i<10; i++;){     i라는 변수 선언, i가 10보다 작다는 조건 달음, 반복문이 돌아갈때마다 1씩 더하겠다
+  console.log(i);
+} 1 2 3 4 5 6 7 8 9 
+
+반대로 1씩 빼겠다
+for (let i = 10; i > 0; i--;){   2씩 빼고 싶으면 i-=2
+  console.log(i);
+} 10 9  8 7 6 5  4 3 2 1
+
+2씩 빼고 싶으면 
+
+for문과 배열을 함계사용하는 법
+const name = ['멍멍이', '뭉뭉이', '야옹이'];
+for (let i = 0; i < name.length; i++){
+  console.log(name[i])       별에서 몇번째인지 닌깐 []
+}
+
+while
+let i = 0;               for하고 차이점이  i초기값 설정하는 부분이 반복문 바깥쪽에서 이뤄졌고
+while (i < 10){         while사용할때 주의 할점이 여기 조건이 언젠가 폴스가 되게. 폴스가 안되면 이 와일문은 영혼히 반복
+  console.log(i);
+  i++;                  i에 변화를 주는 부분이 코드 블럭 내부에서 이뤄졌다
+} 1 2 3 4 5 6 7 8 9
+while작성할떄는 이렇게 숫자를 하나씩 올려가는 반복문은 잘 안한다. 폴문이 좋으닌깐
+while은 까다로운 부분 단순히 숫자를 비교하는게 아니라 어떤값이 투루가 됐을떄 그럴때를 비교한다.
+
+let i = 0;
+let isFun = false;                 와일은 참이면 반복을 해라.
+while (isFun === false) {    (!isFun)이렇게도 쓸수 있음. 와일문은(여기가 트루일때반복).
+  console.log(i)
+  i++
+  if (i === 30){
+    isFun = true;
+  }
+} 0~29까지 나옴. 
+그닌깐 이거네 
+i가0 isFun은 false로 변수 지정을 했어. 와일은 조건이 참이면 실행 언제까지? 멈출때까지 반복문이닌깐. 
+와일 조건이 폴스와 폴스가 같냐야. 폴스와 폴스가 같으닌깐 와일문은 트루, 그럼 블럭을 실행. 콘솔로그i가 0이고 
+i++을 만나면 다음번에 1을 더해라고 그다음 if조건 0이 === 30과 다르다 폴스/ if문이 폴스닌깐 블럭 실행 안되고
+와일 반복문이닌깐 멈출때까지 계속실행. 마지막 30이 됐을때 if문 참이닌깐 블럭 실행 isFun이 트루가 되서
+와일 조건으로 올라가 와일 조건이 트루===폴스야 이건 폴스닌깐 와일문 폴스 멈추게 된다.
+
+
+
+for of 반복문 주로 배열을 다루게 될떄. 배열안에 있는 것들을 사용해서 어떠한 작업을 할때 쓴다
+const numbers = [10, 20, 30, 40, 50];
+for(let number of numbers) {       number은 이름이 다른거라도 상관없음. 그냥 이름인갑네.여기서 가리키는게 10, 20, 30, 40, 50
+       console.log(number)10,20,30,40,50     음 of닌깐 numbers중에네.let 이름은 배열 중에 뭐다
+}
+이걸 for문으로 만들어 보면
+const numbers = [10, 20, 30, 40, 50];
+for (let i = 0; i < numbers.length; i++;){
+  console.log([numbers]);
+}
+근데 둘다 강의하는 사람은 안쓴데 
+배열의 내장함수 활용하면 더 쉽게 할수 있떼
+
+
+
+for in 객체에 대한 반복적인 작업을 처리할때
+const numbers = [10, 20, 30, 40, 50];
+const doggy = {
+  name: '멍멍이',
+  sound: '멍멍',
+  age: 2               키값들을 배열형태로 가져가고 싶으면
+}                     console.log(Object.keys(doggy))   [name, sound, age]
+                        console.log(Object.values(doggy))     ['멍멍이', '멍멍', 2]
+                        console.log(Object.entries(doggy))
+                        키 밸류값 포함 배열형태로
+
+const doggy = {
+name: '멍멍이',
+ sound: '멍멍',
+ age: 2
+}
+for (let key in doggy){   
+  console.log(key);         name sound age
+  console.log(`${key}: ${doggy[key]}`)     키밸류 함께보고 싶으면   name: '멍멍이',
+  doggy[key]하면 왜 값들이 나오지?                                sound: '멍멍',
+                                                               age: 2 
+}                          
+
+
+break  반복문에서 벗어나거나
+
+
+
+for (let i = 0; i < 10; i++){
+  if(i === 2) continue;   특정조건이 만족되었을때  다음루프를 돌개끔
+  console.log(i)         1, 3, 4, 5, 6 ,7 ,8, 9
+  if(i === 5) break;     5면 종료  1,2,3,4,5
+}
+
+
+function sumOf(numbers){
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++){
+    sum += numbers([i]);
+  }
+  return sum;              결과값이 console.log(result)의 호출로간다
+}
+const result = sumOf([1, 2, 3, 4, 5]);
+console.log(result)
+
+
+function biggerThanThree(numbers) {
+  const array = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > 3) {
+      array.push(numbers[i]);
+    }
+  }
+  return array;
+}
+
+const numbers = [1, 2, 3, 4, 5, 6, 7];
+console.log(biggerThanThree(numbers)); 왜 이건 numbers를 호출을 안하지?
