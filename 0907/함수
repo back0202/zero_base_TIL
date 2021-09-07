@@ -1,0 +1,132 @@
+const a = 10;
+const b = 15;
+const c = 15;
+console.log(a >b);       이러면 트루인지 뻘스인지 나옴
+console.log(a < b);
+console.log(b>=a);
+
+
+문자열붙이기
+const a = '안녕';
+cosnt b = '하세요';
+console.log(a + b);
+안녕하세요
+
+
+
+조건문 
+특정상황에 특정 작업을 실행
+
+const a= 1;
+if (a + 1 === 2){   여기에 있는 조건이 트루라면 
+  console.log('a + 1 = 2입니다');   여기실행. 아니면 실행안됨
+  conslog.log(fsdf)             여러줄 입력 가능
+}
+if문을 사용하면 특정 조건이 만족될 때만 특정 코드를 실행 할수 있다
+
+상수 혹은 변수가 다른 블록 범위에서는 똑같이 선언 할수 있다
+const a = 1;
+if (a + 1 === 2) {     다른 블럭범위가 이 블럭을 말함
+  const a = 2;
+  conslog.log('if문 안의 a값은 ' + a);   if문 안의 a값은 2
+}
+conslog.log('if문 밖의 a 값은 ' + a); if문 안의 a값은 1
+
+
+
+
+const a = 10;
+if (a > 15) {     이 조건이 맞으면 밑에거 실행. 아니면 다음으로 넘어감
+  console.log('a가 15보다 큽니다');
+} else {
+  console.log('a가 15보다 작습니다');
+}
+
+
+cosnt a = 10;
+if (a === 5){       이 조건 만족 하면 밑에거 실행 아니면 다음 조건 확인
+  conslog.log('a는 5입니다');
+} if else (a === 10){
+  conslog.log('a는 10입니다');
+} else{
+  console.log('a는 5도 아니고 10도 아닙니다');
+}
+
+
+특정 값이 무엇이냐에 따라 다른 작업을 하고 싶을때
+const device = 'iphone';
+swich (device) {
+  case 'iphone': 
+    console.log('아이폰!');
+    break;                   브래이크 안하면 다음코드 까지 실행. 그래소 꼭 입력해야함
+   case 'ipad':
+     conslog.log('아이패드!');
+     break;
+    case 'gel':
+      console.log('갤럭시!');
+      break;
+     default:         아무것도 일치하지 않았을때 실행
+       conslog.log('모르겠네요!') 
+}
+
+
+
+
+es6 ecmascript 6
+자바스크립트의 버전
+es2015 2015년에 도입이 되서
+지금은 es10
+탬플릿 리터널
+function hello(name){
+  conslog.log(`hello ${name}!`)   파라미터로 가져온 값을 넣는다
+  (함수에서는 return이 사용되는 순간 종료) 이걸 if문안에서하면 그 조건이 해당할때만 끝난다
+}
+hello('hi');
+
+function hello(name) {
+  return `hello ${name}!`;
+}
+const result = hello('velo');
+conslog.log(result);
+
+
+점수를 0부터 100까지 가져와서 등급형태로 변한
+function grade(score){
+  if (score ===100){
+    return 'A+';
+  } else if(score >==90){
+    return 'A';
+  } else if (score === 89){
+    return 'B+';
+  }else if (score >==80){
+    return 'B';
+  }else {
+    return 'F';
+  }
+}
+
+const grade = getGrade(95);
+console.log(grade);
+
+다른 방법
+화살표함수
+const add = (a, b) =>{
+  return a + b;
+}
+const sum = add(1 .2);
+console.log(sum)
+
+위에거 이렇게됨
+const add = (a, b) => a + b;
+
+const sum = add(1 .2);
+console.log(sum)
+
+
+const hello = (name) =>{
+  console.log(`hello. ${name}!`);
+}
+hello('vel')
+
+화살표함수랑 펀션함수의 차이점은
+this가 가리키는게 다르다
