@@ -1,0 +1,197 @@
+transition
+전환 전의?
+a가 b로 변환이 될건데 어느정도 시간을 가지고 변환이 될거다.a가 b로 전환되는걸 보여주는걸
+버튼이 있을때 마우스를 올리면 확 변화는게 아니고 시간차를 두고 변한다
+js없이 다이나믹한 애니매이션 효과
+시간이라는 개념이 들어가게 된다
+단축속성
+
+a의 css가 b의 css로 바뀐다
+transition-property: all; 가지고 있는 모든 것들을 바꾸겠다
+transition-property: margin-right, color;
+
+
+얼마만큼의 시간을 가지고 변경하느냐
+transition-duration: 500ms;
+transition-property: margin-right;   마진라이트를 500ms 시간을 가지고 바꾸겟다
+
+transition-duratin: 2s, 3s;
+transition-property: margin-right, color;   마인라이트는 2초, 컬러는 3초의 시간을 가지고 바꾸겠다
+
+time자료형
+애니매이션이나 트랜지션에 사용
+s초
+ms 1000ms       0.5s === 500ms
+
+
+
+.box{
+    width
+    height
+    transition-property: all;      all하면 여기 선언 안에 있는것 모두가 아니네. 바뀌는 밑에 박스에 있는 애들 전부를 지정하는거네.
+    transition-duration: 2s;         여기에 쓰게 되면 마우스를 올리거나 내릴때 모두적용
+    transition-delay: 3s;           위에거랑 차이점은 딜레이시간 3초가 지난뒤에 변화가 시작된다.이후 2초동안에 걸차 변화함
+}
+.box:hover{
+                                    여기에 쓰면 마우스를 올릴때만적용
+}
+
+
+
+transition-delay:
+애도 time자료형을 갖는다
+트랜지션 되는것을 지연한다
+
+
+
+
+transition-timing-funtion
+트랜지션이 될때 동안 중간과정이 있다.
+이걸 순차적으로 보이게 할지, 앞부분을 빠르게 움직이고 뒷부분을 천천히 움지이게 할지
+값으로는 
+ease          기본값
+easein
+easeout
+ease-in-out     중간에빠른속도    
+linear      같은속도
+cb
+
+
+전역속성인데 순서가 중요함
+두레이션하고 딜레이가 둘다 시간을 쓰기 때문에
+:4s;          시간이 하나만 있으면 무조건 두레이션
+:4s 3s;       앞쪽이 두레이션 뒤쪽이 딜레이
+시간들의 순서만 중요하지만
+대부분
+프로퍼리 두레이션 펀션 딜레이
+맨앞에는 무조건 프로퍼티
+
+
+
+.box{
+    transition:
+}
+
+.box:hover{
+    transform:
+    transform-origin:  bottom right;     
+}
+
+
+위에거는 유저의 액션이 있을때만 변경인데
+animation같은 경우는 유저의 액션이 없어도 변경
+트랜지션은 a에서 b로 바꼈지만
+애니매이션은 a에서 b 에서 c에서 d
+단축속성
+키프레임을 만들어서 그것을 갖다쓰는거
+@keyframes 이름{
+    0%{}          시작에서는 어떤 스타일, 30에서는 어떤 스타일. 이건시간이다
+    30%{}
+    50%{}           
+    50%{}           동일한거 하면 뒤쪽에 있는거 적용
+    100%{}
+}
+@keyframes 이름{         2가지 스타일도 가능
+    from{}              어떤스타일에서 어떤 다른스타일 상태로 적용한다. 프롬에서 투로. 2개이상 할때는 %로
+    to{}
+}
+
+
+
+
+
+
+
+
+.box{
+    width:
+    height:
+    animation: dd 5s alternate;       alternate작동했다가 다시 돌아온나. 100에서 200갔다고 200에서 다시 100으로 돌아온나
+}
+
+.box:hover{
+    animation: dd 5s 뒤에다가이름적어줌dd;              여기다 주면 마우스 올렷을때만 적용하게 할수도 있다
+}
+
+@keyframes dd{
+    from{width:100px;}                        2개이상의 키프레임 작성.     기본값은 안적어도 되서 from{}해도됨
+    to{width: 200px;}               100에서 200으로
+}
+
+@keyframes dd{
+    0%{}             
+    50%{width: 200px;}               alternate써도 되고, 이방법 써도됨. 기본값에서 200갔다고 다시 기본값으로 가라.
+    100%{}
+}
+
+@keyframes dd{
+    50%{width: 200px;}      비어있는거 생략해도 동일하게
+}
+
+
+@keyframes{
+    0%{
+        font-size:20px;
+    }
+    50%{
+        width: 200px;
+        font-size:80px;
+    }
+    100%{
+        font-size:20px;             이렇게 여러개 넣는 것도 가능
+    }
+}
+
+
+
+
+animation-name
+키프레인즈의 이름
+대소문자를 구분하고 a-z까지 0-9까지 underscores(_), dashes(-) 만 사용가능
+
+animation-duration
+몇초에 걸쳐서 진행을 할껀지
+애니매이션 딜레이는 음수값을 허용하지만 두레이션은 허용안함
+
+animation-delay
+-값을 넣을수 있음. 넣으면 0처럼 바로시작하지만 중간부터시작한다. 마치1초전에 시작한거 처럼
+
+animation-timing-function
+
+
+위에 것들은 트랜지션하고 비슷한데 이제 부터 거기에 없는거
+animation-iteration-count
+반복횟수  infinite무한반복
+animation-direction
+역방향 재생가능하게
+reverse 거꾸로
+alternative 앞으로 갔다 뒤로 갔다
+alternative-reverse 처음을 거꾸로 시작해서 왔다 갔다
+
+animation-play-state
+running 기본값  계속재생
+paused    일시정지
+2개만 이씅ㅁ
+
+
+animation-fill-mode
+애니매이션이 실행 전과 후가 스타일이 어떻게 바뀔지
+forwards 애니매이션이 진행을하다가 끝날때는 키프래임에 100%혹은 to에 해당하는 마지막 모습을 그대로 유지해라
+backwards 시작하기전에 딜레이가 있다면 3초 5초전 이렇게, 그때 0% from에 있는 스타일을 미리 준비하고 있어라
+both 포월즈랑 백월즈 둘다 적용
+
+애니메이션이 진행되고 있는 동안 스타일이 바뀐다
+1 기존 스타일
+2 키프레임 첫번쨰        2,3,4번이 애니매이션이 진행되고 있는 순간. 
+3 키프레임 진행중      
+4 키 프래임 마지막
+5 기존스타일
+이 5가지를 제어할수이쓴게 필모드
+포월즈하면 4번에서 끝난다
+백월즈하면 2번부터 시작
+
+
+애니매이션 단축속성
+애니매이션 네임을 마지막에
+트랜스?마찬가지로 시간이 먼저 오고 딜레이는 뒤에 와야함. 바로뒤에 라는 말이 아니다
+키프레임 이름이랑 디렉션같은거는 기본적으로 작성
