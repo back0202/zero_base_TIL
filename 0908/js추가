@@ -1,0 +1,26 @@
+let i = 0;
+let isFun = false;                 
+while (isFun === false) {   
+  console.log(i)       처음에 0이와 그리고 i++로 1을 더해.1과 if조건문 비교 폴스 닌깐
+  i++                  다시본반복. 콘솔로그 1. i++닌깐 1을더해 2. 2와 if 비교.
+  if (i === 30){       콘솔로그 29. i++닌깐 30이돼. 30과 if조건 비교 참 이닌깐. 끝
+    isFun = true;
+  }
+} 
+
+const numbers = [10, 20, 30, 40, 50];
+for(let aa of numbers) {       aa는이름. aa에 넘벌스의 하나 of닌깐 추가해. 다음 콘솔진행
+       console.log(aa)     하면 10나오고 다음 실행. aa가 넘벌스의 of닌깐 20. 
+}                          콘솔실행 20.
+
+
+
+const doggy = {
+  name: '멍멍이',
+   sound: '멍멍',
+   age: 2
+  }
+  for (let key in doggy){       doggy in 이닌깐 안에있는 키값(여기선 그냥 이름이 나닌듯)
+    console.log(key);         
+    console.log(`${key}: ${doggy[key]}`)    doggy[key]. 배열에서 dd[0]하면 첫번쩨거                                           
+  }                                       나온거 처럼. 
