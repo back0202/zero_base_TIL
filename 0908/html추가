@@ -1,0 +1,53 @@
+vw vh
+뷰포트 기준
+뷰포트는 보여지는 영역
+보여지는 영역에서 얼마만큼 차지할 것인지 지정
+1vw = 뷰포트 너비 1%
+500px =  1vw 5px
+브라우저를 잡고 늘려서 윈도우 너비가 850px이 되면 자동을 1vw=8.5px로 계산
+미디어 쿼리를 써주지 않아도 자동으로 브라우저 크기 반응
+
+자손선택자(하위, 후손) 
+ul li 이거는 ul안에 있는 자식과 자손 둘다
+
+ul > li ul의 자식 li모두
+
+인접형제  선택자
+div ~ span div와 형제이면서 div 뒤에 오는 span 전부
+근접형제 선택자
+div + span div 바로 뒤에 오는 span만
+
+
+
+상속제어
+inherit
+부모의 상속을받아라 color: inherit;
+초기 값으로 돌려라    color:initial; 모든 상속 초기화
+
+color: unset;    부모에 상속받을 값이 있다면 inherit 부모껄 상속받고, 부모에 상속받을 값이 없다면 initial 모든 상속초기화 기본값 자기것도 안 받음
+
+attribute input[type=text] 
+
+
+article :first-of-type은 자식 뿐만 아니라 자손까지선택. 이게 중첩요소.
+타입들중에 첫번쨰.
+아 겨이서 띄어 쓰기가 중요하네. 알티클 스페이싱 했으니 알티클 자손 요소 중에 첫번째네. *생략된거
+<article>
+    <div>This `div` is first!</div>
+    <div>This <span>nested `span` is first</span>!</div>
+    <div>This <em>nested `em` is first</em>, but this <em>nested `em` is last</em>!</div>
+    <div>This <span>nested `span` gets styled</span>!</div>
+    <b>This `b` qualifies!</b>
+    <div>This is the final `div`.</div>
+  </article>
+
+  article :first-of-type {
+    background-color: pink;
+  }
+
+<div class="b"></div>
+<p class="b"></p>
+<p class="b"></p>
+<div class="b"></div>
+<p class="b"></p>
+만약 .b:first-of-type면 .b클래스들 찾아서 그 타입들, div p 타입들 중에 첫번째닌깐 div 첫번쨰 p첫번쨰 변화
