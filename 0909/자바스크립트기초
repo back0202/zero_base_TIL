@@ -1,0 +1,313 @@
+변수나 상수나 이런 이름을 정할떼 let name = 1; 여기 name자리에 이름으로 올수 없는 것들이 있는데
+그게 예약어. 이미 다른 이름이로 정해져 잇다.
+
+alert()
+경고창을 띄우는 함수 
+name='mike';     이렇게 let const안쓰고 선언하는건 위험하다.
+age = 30;        다른사람이 똑같은 이름을 써버리면 덮어씌워지게된다
+alert(name); 하면 경고창이 뜬다. 화면중간에 뜨는거 
+console.log()
+로그를 찍는 함수
+
+let grade='F';   let은 한번 선언하고 다른 값으로 바꿀수 있다.
+grade ='A+';     이럴경우 let을 생략하고 적으면 된다.
+const는 대문자로 입력하는게 좋다. 다른 개발자들에게 상수라는걸 알리기 위해
+파이나 생일이나 최대값 같은 바뀌지 않는 값을 선언할때 사용
+const PI = 3.14;
+
+변수는 문자와 숫자, $와 _만 사용     let _ = 1
+첫글자는 숫자가 될수 없다,           let 1s = 1;
+예약어는 사용할수 없다              let let = 1
+가급적 상수는 대문자로 알려줘야한다
+변수명은 읽기 쉽고 이해할수 있게 선언     let a = 1이래 쓰지 마라
+
+문자형
+cosnt name = 'mark'// 문자형 string
+const name1 = "mark";
+const name2 = `mike`;
+
+const name = "I'm a boy"; 작은 따움표를 안에 쓰면 큰따움표로 감싼다
+const name = 'I\'m a boy'; 작은 따움표를 쓰고 싶으면 역슬래쉬 이용
+
+const name = `my name is ${name}`;
+백틱은 문자열 내부에 변수를 표현할때 사용하면 편리
+const name = `나는 ${30 + 1}살 입니다`; 나는 31살입니다 나옴
+표현식을 넣을 수도 있다
+
+
+숫자형
+- + * / %     %는 나머지
+const x = 1/0;        infinity
+숫자를 0으로 나누면 무한대
+const name = 'mark';
+const y = name/2;
+문자형을 숫자로 나누면 nan 낫어 넘버(숫자가 아니라는 뜻)
+
+
+
+boolean 물리적인 요소를 나타낸다
+참 거짓     true   false
+const name = 'mark';
+const name1 = 30;
+console.log(name == 'mike');    true가 뜨고
+console.log(name1 > 40);      false가 뜬다
+
+
+
+
+null 
+존재하지 않는값
+undefined
+값이 할당 되지 않앟다.
+let age;
+console.log(age); 변수를 선언만 하고 아무것도 할당하지 않으면 undefined
+
+let user = null;   user는 존재하지 않는다는 의미
+
+
+type of 연산자
+변수의 자료형을 알아 낼수 있다.
+const name = 'mark'
+console.log(typeof 3);   Number뜨고
+console.log(typeof name); string뜨고. name은 mark닌깐 string
+console.log(typeof true); boolean
+console.log(typeof 'xxx'); string
+console.log(typeof null)   Object는 객체형을 의미. null은 객체가 아님. 자바스크립트 초기버전 오류
+console.log(typeof undefined)   undifined
+
+const name = 'mark'
+const a = '나는 '
+const b = ' 입니다';
+console.log(a + name + b); 나는 마크입니다
+const age = 30;
+console.log(a + age + '살' + b) 나는 30살 입니다.
+숫자랑 문자 같이 더하면 문자형으로 변경
+
+
+alert 알려줌      경고창뜨고 확인 누를때 까지 떠있음. 사용자와 상호작용보다 일반적으로 알리는 용도
+prompt 입력받음    사용자에게 어떤 값을 입력 받을때 사용. 취소 확인 버튼나온다 alert는 확인 버튼만. 취소를 누리면 null나옴. 
+const name = prompt('이름을 입력하세요');    음 이것도 경고창처럼 뜬다. 처음에 이름을 입력하세요하고 입력할수 있는 창이 뜨고 확인 누르면 alert때문에 경고창이뜨네
+alert('환영합니다. ' + name + '님')  경고창에 이름을 입력하세요 뜨고 입력할수 있는 공간뜸. 거기에 입력하면 name에 들어감. 이름입력하고 확인누르면 환영합니다 name님듬
+alert(`환영합니다. ' + ${name} + '님`)    백틱으로 할수 있음
+확인 안누르고 취소하면 null뜸
+
+prompt는 디폴트 값도 입력할수 있음
+const name = promt('예약일을 입력해주세요.', '2020-10-') 뒤에게 디폴트값. 예약일을 입력해주세요. 뜨고 입력창에 2020-10- 이 디폴트 값으로 나온다.
+                  ()함수를 실행하는 괄호안에서 들어가는 값들을 인수라 한다(예약일을 입력해주세요.', '2020-10-)이거 2개가 인수
+confirm 확인 받음. 사용자에게 확인을 받기 위한 용도
+const isAdult = confirm('당신은 성인 입니까');
+console.log(isAdult);      경고창 처럼 뜨고 당신은 성인입니까 뜨고 취소 확인 누를수 있는경고창뜬다. 확인 누르면 true뜨고 취소누르면 false뜬다
+alert이랑 다른점은 alert은 확인 버튼만 있지만 confirm은 취소 확인 버튼이 있ㄷ.
+
+기본적으로 제공되는 창 3개는 간단하게 사용할수 있지만 단점 존재. 
+장점빠르고 간단하게 적용가능하다
+1. 창이 떠있는 도안 스크립트 일시정지
+2. 스타일링이 불가능하다. 위치와 모양을 정할수 없다. 브라우저마다 모양이 다르다
+//주석
+
+String()  문자형으로
+Number()   숫자형으로
+Boolean()   블린형으로 변환
+형변환이 필요한 이유 
+자료형이 다르면 의도치않은 동작이 일어남
+100 + '100'
+prompt로 입력받은 값은 무조건 문자형
+숫자형이 아니더라더 /같은 표현식은 숫자형으로 자동변환되서 계산. 이걸 자동 형변환
+'6' / '2' = 3 
+자동형변환되면 오류가 어디서 발생했는지 알기 어렵다
+그래서 명시적형변환이 좋다, 의도를가지고 변환한게 명시적 형변환. String Number  Boolean
+Number('1234fsdf') Nan뜸
+Number(true)   1    트루와 폴스는 슷자로 형변환하면 1, 0 나옴
+Number(false)   0
+Number(0)   null
+Number(undifined)    Nan
+
+Boolean은 false만 알면됨
+숫자 0
+빈문자열 ''
+null
+undifined
+Nan
+이 값들은 모두 false가 되고 이 외에는 true를 반환
+
+
+Number(0) false
+Number('0') true
+Number('') false
+Number(' ')공백이 들어가 잇으면 true
+
+
+나머지는 어디에 쓰일까
+홀수: X%2=1
+짝수: Y%2=0
+5보다 작은 값을 얻고 싶으면
+x%5= 0~4 값을 반환
+
+거듭제곱
+const num = 2**3
+console.log(num);   8
+
+연산자 줄여쓰기
+let num = 10;
+num = num+5
+console.log(num)   
+이거ㄹ
+let num = 10;
+num+=5;
+console.log(num)   
+
+
+
+증가연산자, 감소연산자
+let num = 10;
+num++;
+console.log(num)   11나옴
+
+++ 앞에 쓰는 거랑 뒤에 쓰는거 차이 있따
+let num = 10;
+let result = num++     ++뒤에 적으면 증가 시키기 전 에 값을 result에 넣는다. ++앞에 적으면 증가 시킨 값을 앞에 적는다
+console.log(result)  10나옴
+
+
+
+비교연산자
+< > <= >= == !=
+왜 ==2개 쓰냐
+=하나 쓰는건 할당을 의미  a=3 a에 3을 넣어줘라 라는뜻
+비교연산자를 쓰먄 값을 반환하는데 블린형이다. true 냐 false냐 
+console.log(10>5)   true나오고
+console.log(10==5)    false
+console.log(10!=5)     false
+==2개 쓰는걸 동등 연산자라 하는데 이상한 결과가 나올때가 있다
+const a = 1;
+const b = '1';
+console.log(a==b); true나옴. 숫자형과 문자형이 같다고 나옴
+===3개쓰면 타입 까지 비교
+console.log(a===b);   false 나옴. 일치 연산자라 함. 타입까지 비교
+
+
+조건문
+if문 ()안에 조건을 비교해서 true면 실행. ()안에 값은 항상블린형으로 판단
+else절은 if문의 조건이 false일때 실행
+const age = 30
+if (age > 19){
+  console.log('안녕하세여')
+}
+if(age <=19){
+  console.log('안녕히가세여')
+}
+console.log('----------')
+안녕하세여
+-------------  console.log는 로그를 찍는 거닌깐 나오네
+
+else쓰면
+if (age > 19){
+  console.log('안녕하세여')
+} else{
+  console.log('안녕히가세여')
+}
+
+
+else if()쓰면
+if (age > 19){
+  console.log('안녕하세여')
+} else if (age === 19){
+  console.log('수능잘치세여')
+} else{
+  console.log('안녕히가세여')
+}
+
+
+논리연산자
+or and Not
+어떤 순서로 코드를 배치하는지가 실제 코드에서 중요
+운전면허가 있으면서 시력이 좋으면서 여군인 사람
+80%              60%           7%
+여군인데 시력이 좋으면서 운전면허가 있는사람 이 순서로 코드를 작성하는게 성능최적화에 도움
+&& || !
+이름이 Tom 이거나 성인이면 통과
+const name = 'mark';
+const age = 30
+if(name === 'Tom' || age > 19){
+  console.log('통과')
+}
+
+나이를 입력받아 성인이 아니면 돌아가라
+const age = prompt('나이');
+const isAge = age > 19;
+if(!isAge){
+  console.log('돌아가')
+}
+
+비교연산자 우선순위
+남자이고, 이름이 mike이거나 성인이면 통과
+&&가 ||보다 순서 빠르다
+const gender = 'F'
+const name = 'jane'
+const isAdult = true
+if(genDer === 'M' && name==='mike' || isAdult)이거 true다
+왜냐하면 &&가 ||보다 순서가 빨라서 먼저 평가된다. gender에서 false 나오는데 &&는 하나만 폴스면 폴스라
+폴스가 되고 어덜트가 성인이라 트루니 ||에서 하나만 트루면 통과라 통과 된다
+그래서 if(genDer === 'M' && name==='mike' || isAdult)를
+if(genDer === 'M' && (name==='mike' || isAdult)) 묵어줘야한다
+
+
+
+
+loop
+1부터 10까지 콘솔로그를 찍어야 한다면
+console.log(1)
+console.log(2)
+console.log(3)
+console.log(4)
+console.log(5)
+console.log(6)
+이렇게 할수있지만 100까지 많은 숫자를 찍긴 힘ㄷㄹ다
+이럴때 쓰는걸 반복문, 반복문은 동일한 작업을 여러번
+for(let i = 0; i<10; i++)  for문은 ;으로 구분한다. 초기값 조건 반복문이한번 실행된후 해야할 행동
+     1         2 5    4 7 
+     3,6
+i = 0, i가10보다 작으므로 코드실행 i1증가 
+i=1 i가 10보다 작으므로 코드실행 i1증가
+
+while
+let i =0
+while(i<10){
+  console.log(i)
+  i++
+}
+
+
+do while
+let i = 0
+do {
+  console.log(i)
+  i++
+}while(i<10)
+while과 do while이 다른점은 do while은 적어도 한번은 실행한다.
+
+
+반복문을 빠져나오는 기능
+break
+멈추고 빠져나옴
+continue
+멈추고 반복문을 빠져 나오지는 않고 다음 반복
+
+while(true) {       무한반복
+  let answer = confirm('계속할까요')     확인을 누르면 걔속반복하고 취소를 누르면 break를 만나기 때문에 종료
+  if(!answer){
+    break;
+  }
+}
+
+continue를 이용해서 짝수만 찍기
+for(let i =0; i<10; i++){
+  if(i%2){       i를 2로 나눴을때 1이면 if문을 통과
+    continue;
+  }
+  console.log(i)
+}
+이사람은 명확한 횟수가 정해져 있으면 for문을 그게 아니면 while문을 사용한데 do while은 거의 사용안한데
+반복문은 코드를 줄이는 아주좋은 방법중 하나
+
+스위치 부터
