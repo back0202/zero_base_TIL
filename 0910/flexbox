@@ -1,0 +1,252 @@
+
+box{
+  display:flex;
+  flex-direction: row-revere;
+}
+
+box{
+  dispaly:flex;
+  flex:wrap-reverse;
+}
+
+box{
+  dispaly:flex;
+  flex-flow: row wrap;
+}
+row wrap이면 왼쪽에서 시작해서 오른쪽으로 가다 부모 width값 넘으면 줄바꿈
+row wrap-reverse면 row왼쪽에서 밑에서 시작이고 row이기 때문에 왼쪽밑에서 오른쪽으로 올라간다
+왜냐면 row-reverse면 오른쪽에서 시작이자나, row이기떄문에 왼쪽에서 무조건 시작해야 하기떄문에
+
+
+item{
+  order:1
+}
+order의 기본값은 0이고 낮은 숫자가 맨앞으로온다. zindex같이 숫자를 부여하는거. 부모에 flex나 grid가 있어야한다,
+
+item{
+  flex-grow:1; 
+}
+-값은 안되고, 브라우저의 크기를 늘렸을때 크진만큼의 공간을 얼마나 할당할지. 각아이템별로 지정할수 있다. 비율을 말하는거다
+아이템 하나에 1을 주면 그 아이템만 늘어난 공간의 크기를 혼자 다 먹는거
+
+item{
+  flex-shrink:1       컨테이너가 줄어들때 얼마만큼 비율로 줄어듥
+}
+
+flex-basis:auto가 부모의 width 
+
+
+아이템들의 비율을 정할떄, grow를 1 1 1로 주면 늘어난 만큼의 비율이 1 1 1 다. 그럼 기존의 basis나 기본 width값을 제외 한 값 이기 떄문에
+늘어 났을때 전체의 크기가 다르다. 전체를 같게 해줄라면 basis를0 으로 설정하고 grow 1 1 1로 주면 늘어났을때도 basis를 포함해서 
+1 1 1로 크기가 같다
+아니면 basis를 100px이렇게 동일하게 아이템 들에게 주고 grow를 1 1 1로 설정하면 비율이 같아진다.
+
+
+
+flex-grow 0           순서 grow shrink basis순서
+flex-shrink 1
+flex-basis auto 는 basis를 작성하지 않는다고 해서 auto로 작동하지 않는다. 위에 2개는 기본 값작동
+flex:1 과 flex-grow:1은 같다. 단축속성이라 3가지를 한번에 쓸수 있는데 하나만작성해서 그게number면 그건 flex-grow다
+하나만 썻을때 % em rem px이면 그건 basis를 말함. 
+flex: 1 이나 flex: 1 2 처럼 한개 또는 2개의 숫자를 작성하게 되면 basis는 auto가 아니라 0이 된다,
+flex: 여기에서 첫번쨰 값은 무조건 number로 작성해야한다 단위 나오면안됨. flex:1 50px하면 뒤에게 shrink가 아니라 basis로 인식
+또 다른 방법은
+flex:initial은 flex: 0 1 auto;랑 동일하다
+flex: auto면 flex: 1 1 autou
+
+
+
+
+컨테이너에 사용하는거. 주축에 대한 정렬
+box{
+  display: flex;
+  justify-content: first-start;          주축이 시작되는 위치에서 아이템들을 정렬하겠다. 마치 왼쪽정렬인거 처럼
+  justify-content: flex-end;           주축이 끝나는 곳 기준으로 정렬을 하겠따. direction이 설정 되지 않았다면 왼쪽에서 시작이기 때문에 끝나는 오른쪽으로 붙이기겠다. 오른쪽정렬처럼
+  justify-content: center;             주축을 기준으로 가운데정렬
+  justify-content: space-between;      첫번째 아이템과 마지막 아이템이 기준끝에 맞추고 아이템들의 간격이 동일하게 만든다
+  justify-content: space-around;       첫번쨰 아이템과 마지막 아이템이 기준끝에 가긴하는데 여백을 가짐. 그 여백이 아이템들의 여백의 반이다.
+}
+
+플렉스는 1차원이다. 1줄에 관한거. 근데 flex-wrap을 쓰면 여러줄 가능하지만 이건 grid로 설정하는게 맞다 행렬일떄grid
+교차축에 대한 졍렬. 컨테이너에 쓰는거
+위에 둘지 중앙에 둘지 밑에 둘지 설정하는거
+align-items: stretch; 기본값 아이템들이 height가 지정되어 있지않으면 stretch때문에 높이가 부모의 높이만큼 가진다.
+box{
+  display: flex;
+  align-items: flex-start;
+  align-items: flex-end;         한줄에 관한 내용이라 beteen나 around사용불가. 
+  align-items: center;                
+}
+여긴 wrap을 써서 여러줄일때
+뒤에 content가 붙은 애들은 여러줄에 대한 여러개의 아이템들에 관한
+box{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;      교차축의 시작부분에 달라붙는다. 줄끼리의 여백이 줄어듬
+  align-content: flex-end;        교차축의 끝부분에 붙는다
+  align-content: center;          중앙에 자리잡는다
+  align-content: space-between;    여러줄이라 beteen이나 around사용가능
+  align-content: space-around;
+}
+
+
+
+아이템에 사용
+box{
+  display:flex;
+  flex-wrap-wrap;
+  align-items: center;     align-items는 한줄에 관한 내용인데. 여러줄이 되면 각줄마다 다른 컨테이너라고 생각을 함. 여기서 align-items를 사용하면 각줄마다 center로 이동
+    }
+만약여기서 4번쨰 아이템만 센터가 아닌 위로 붙이고 싶을때
+item:nth-child(4){
+  align-self: flex-start;      이렇게 하면 4번만 자기줄에서 위로붙는다. 왜냐면 여긴 교차축에 관한 내용이고 교차축이 y축 이닌깐
+}
+
+
+
+grid는 2차원
+flex는 기본적으로 주축에만 아이템들이 올수 있는데 wrap을 이용해서 여러줄도 가능했다
+grid는 여러줄, 주축과 교차축 모든것에 대한
+컨테이너에 행과 열을 만들고 틀을만들어 놓고  틀에 맞춰서 넣는것
+행과 열사이의 공백을 gutters. get이라고도 함
+box{
+  display:inline-grid;를 썻을때 여긴블럭 이자나, 이 블럭을 인라인으로 만들고 싶어, 근데 이미 display를 썼자나 그러면 inline-grid하면 된다
+}
+
+컨테이너에 사용하는
+box{
+  display: grid;
+  grid-template-columns: 100px 150px 100px;        만약item이 5개 있다면 세로로 한줄씩있다. grid:100px 150px 100px; 사용하면 1번item 100px 2번150px 3번100px
+                                              1줄에 1 2 3 번item들이 1줄로 오고 3개의 열이 만들어짐. 4번 100px 5번150px 2번째줄에 만들어짐 
+  grid-template-rows: 100px 100px             하면 행이 2줄이고 1번줄에서 높이100px 2번줄에서 높이100px 만들어짐. 만약 박스를 8까지 늘린다면
+}                                             가로는 colums에 맞춰서 되고 세로는 3번쨰 줄이 되긴하는데 rows가 2줄 기준이라 높이 갚은 적용이 안됨
+
+box{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;      3개의 열에 비율설정.
+  grid-template-rows: 1fr 1fr 1fr;         하면 행이 비율에 맞춰서 1 1 1 비율로 나뉜다
+  grid-template-rows: repeat(3, 1fr);      위에 걸 줄일수 있음. 1fr을 3번
+}
+
+box{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rowers: repeat(3, 1fr);
+  grid-template-areas:
+  "hd hd hd hd hd"
+  "m  m  m  . ad"          네모칸을 만들어야 함.  .는 빈칸 공백 주고 싶을때
+  "ft ft ft ft ft"
+  row-gap: 20px;           행끼리 간격 20px
+  column-gap: 20px;        열끼리 간격 20px
+  gap: 20px 30px;          gap한줄에 적는거 가능. 앞쪽이row
+}
+item header{
+  grid-area: hd;
+}
+item main{
+  grid-area: m;
+}
+item aside{
+  grid-area: ad;
+}
+item footer{
+  grid-area: ft;
+}
+
+grid-row-gap을 row-gap으로 쓴다. 오래된 브라우저는 안될수 잇다.
+
+
+box{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-rows: 100px;                   template에 적지 못했던 rows을 추가되는 것을 지정할수있다.auto로 설정한것들은 아이템이 설정되지 않으면 눈에 안보임레이아웃 변화 없음
+  grid-auto-columns:100px;                이건 5번째 박스가 4번쨰 column으로 들어가라고 지정할수있다. row랑 다른개념같음.
+}
+
+box{
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: row;                           기본값. 행방향으로 방향지정
+  grid-auto-flow: column;                        열방향으로 
+  grid-auto-flow: row dense;                     dense 없을때는 1번아이템이 1번칸차지하고 2번째줄에 2번칸이 3반병합이라 3칸차이하고 다음 3번쨰줄에 3 4 5아이템이 오는데
+}                           row가 기본값이라 생략해서 :dense도 가능       dense를 쓰면 2번아이템이 2번째줄 3칸차지하고 1번아이템이 1번줄 1번칸이자나 2번칸에 3번아이템이 3번칸에 4번아이템이 온다.
+item:nth-child(2){
+  grid-column: span 3;                    2번째 아이템이 열을3개 가져라. 열병합.
+}
+
+grid 단축속성
+외제적인 속성(명시적. template처럼 딱 지정하는)
+내제적인 속성(암시적, auto로 시작하는 값이 나중에 지정될수 있는)
+grid: row/column;
+box{
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  grid-tempalte-columns: 100px 200px; 
+  grid: auto-flow 1fr 2fr/ 100px 200px;     오토블로우를 row하고싶으면 저렇게, column으로 하고싶으면 1fr 2fr/ auto-flow 100px 200px;. row가 기본값으로 auto-flow를 생략해서 1fr 2fr/100px 200px; 해줘도 돔
+}
+
+
+justify-content 조건이 박스가 아이템들보다 커서 남는 공간이 있어야한다
+box{
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3. 1fr);
+  justify-content: start;
+  justify-content: end;
+  justify-content: center;
+  justify-content: space-around;
+  justify-content: spae-between;
+  align-content: end;
+  align-content: start;
+  align-content: center;
+  align-content: space-around;
+  align-content: space-between;
+}
+
+
+
+아이템에 사용
+하나의 틀안에서 아에템들을 어떻게 할지
+box{
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3. 1fr);
+  justify-items: start;                           기본값 stretch
+  justify-items: center;
+  justify-items: end;
+  align-items: start;
+  align-items; end;
+  align-items: center;
+}
+item:nth-child(2){                        2번 아이템만 바꾸고 싶을때
+  justify-self:end;
+  justify-self: start;
+  justify-self: center;
+  align-self: end;
+  align-self: start;
+  align-self: center;
+}
+
+
+box{
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3. 1fr);
+}
+item:first-child{
+  grid-row-start:1;
+  grid-row-end: 3;   이렇게 하면 1번칸부터 3번칸 까지 차지 할것같지만 아니다. 여기서 숫자는 칸이 아니라 줄기준이다. 첫번째선부터 3번 선까지.
+                   -선은 명시적으로 작성한 row column 만 가진다. 추가해서 칸이 생겨다 -선은 생기지 않는다
+                   왼쪽줄이 + 오른쪽 끝 줄이 -. -는 밑에서 부터 -1이다
+ grid-row: 1/-1;   위에거를 단축속성으로
+ grid-row: 1/span 2;      1번부터 2칸만
+                  }
+
+
+
+grid-area는 2가지가 있다
+부모에 grid-template-areas을 썻을떄 item에 grid-area: a;를 써서 이름을 지정하는것과
+grid-row-start, grid-column-start, grid-row-end, grid-column-end의 단축속성
+grid-area: grid-row-start/ grid-column-start/ gow-end/ column-end;
