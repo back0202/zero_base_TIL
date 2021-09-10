@@ -45,7 +45,10 @@ wrap-reverse    여러줄에 걸쳐서 배치가 되지만 시작점과 끝점�
 
 flex-flow 
 flex-wrap과 flex-direction을 한번에 쓸수있는 단축 속성
-
+box{
+  display; flex;
+  flex-flow: row wrap;
+}
 
 
 flex item에서 사용하는속성
@@ -60,19 +63,24 @@ order을 줄려면 부모 컨테이너에 플랙스나 그리드가 설정 되�
 
 flex-grow
 아이템에 적용
-기본값 0 
+기본값 0                  grow가 0이면 더이상 늘어나지 않겠다. 박스를 늘렸을때 grow가 0이면 item들은 늘어나지 않는다 본인의 widt값 유지
 크기지정
 flex-shrink와 flex-basis와 같이 사용한다.
 이 3가지를단축속성으로 묶어줄수도 있따
 음수 값은 안씀
 컨테이너를 늘렸을때 비어 있는 공간을 어떻게 할당을 할 것인가
 item{flex-grow:1}을 주면 1:1:1로 할당
+아이템들의 크기가 컨테이너 보다 작을때
 
 flex-shrink
 아이템들의 크기가 컨테이너 보다 클때
 기본값 1
 음수 값 안됨
 컨테이너의 크기를 줄일떄 줄어든만큼 나눠 가지는거
+item{
+ flex-shrink: 0;       더이상 줄어 들지 않겠다. 박스를 줄여도 shrink가 0으로 설정되면 자기가 가지고 있는 width값을 유지한다. 그러다가 박스를 뚥고 나감
+ }
+
 
 
 flex-basis
@@ -84,3 +92,9 @@ flex-basis{
 width값을 지정하지 않았을때 아이탬들은 각자의 크기가 다르다. 그댸 grow를 주면 각자의 최종 길이가 달라지는데
 basis를 주무로써 초기 width값을 동일하게 맟줘서 늘렸을때 아이템들의 크기를 맞추기 위해
 basis0으로 지정하면 위스가 없다.
+
+flex-basis: 100px이나 width 100px이 같은의미다.
+width가 설정이 안되어 있을때는 content길이만큼 item들의 width 값이 다르다.
+basis:0;으로 지정하면 가로가 없다. flex-grow:1; 이면 가로길이가 없기 떄문에 item들의 가로길이 그자체가 1 1 1비율로 설정된다. 늘어난 가로길이 비율 뿐만아니라 기본 비율도  1 1 1이된다고.
+boxsizing을 안하면 content길이만큼이다. 뭔 말이냐면 content-box는 width값만 이자나, box-sizing: boder-box;하면 padding 하고  border합친거고. 여기서 box-sizing을 안했기 떄문에
+여기서 1 1 1비율은 padding border 제외한 content길이만이다
