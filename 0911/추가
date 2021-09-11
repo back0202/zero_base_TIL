@@ -1,0 +1,44 @@
+font-variant: 글꼴변경. 잘안쓴다고 했던거 같다
+
+transform      전환이 있을때, 그러니까 :hover나 :active가 있을때
+  scale()  안에 0.7이렇게 들어감
+
+number은 숫자만. scale은 숫자만 가능하기때문에 뒤 에 단위가 안나온다
+length는 단위 px같은거 붙이는 거
+
+자료형이라는게
+number, length, time 같은 건가 보다
+
+
+animation-delay
+  +값을 넣으면 예로 3s을 넣으면 3초 뒤에 시작이고, -3을 넣으면 즉시 시작이지만 3초가 지난 상태부터 시작
+
+float은 블럭만
+
+<div style="float: left;">   여기다 주면 변화 없음.하지만  자식에 float쓰면 부모에다 HTML 문서의 흐름을 제어하기 위해서는 clear 속성이 필요한데, 부모::after{display:block; content''; clear:both;}요소의 맨 마지막 요소에 자식 요소를 하나 생성,속성과 함께 짝지어 장식용 콘텐츠를 추가할 때 사용,인라인이다.
+  <div style="border: 1px solid #d1d1d1; background-color: blue; width:80px; height: 80px; ">dsf</div> 여기다 floa-left를 주면 자식 요소인 div와 p가 옆으로 나란히.플롯은 띄우는 거닌깐 div를 왼쪽으로 붙여 띄우면 p가옆으로
+  <p>dsfsdfdsfdsfdsfdsf</p>
+</div>
+    
+background-origin
+border-box는 보더의 끝기준
+padding-box는 패딩의 끝 기준
+content-box는 컨탠츠의 끝 기준
+
+
+
+transform
+인라인 박스나, 표 열 박스, 표 열 그룹은 적용 안됨
+matrix - perspective를 제외한 모든 요소들을 한번에 일괄 적용. transform에 단축속성이란 말이군.
+근데 행렬을 이용해서 하는거라 지금은 몰라도 되겠따
+scaleX tan(skewY) tan(skewX) scaleY translateX translateY
+
+perspective()
+transform: perspective(0);은 2차원 평면이다.
+값이 클수록 사용자의 관점이 멀어집니다.
+2d평면을 3d처럼 보이게 하는거 같다
+
+
+animation. name은 맨 마지막에 name과 animation-direction은 항상 적고, duration먼저 delay
+
+
