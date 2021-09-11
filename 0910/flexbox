@@ -132,9 +132,9 @@ box{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rowers: repeat(3, 1fr);
-  grid-template-areas:
+  grid-template-areas:       areas는 셀병합같은거
   "hd hd hd hd hd"
-  "m  m  m  . ad"          네모칸을 만들어야 함.  .는 빈칸 공백 주고 싶을때
+  "m  m  m  . ad"          네모칸을 만들어야 함.  .는 빈칸 공백 주고 싶을때. 
   "ft ft ft ft ft"
   row-gap: 20px;           행끼리 간격 20px
   column-gap: 20px;        열끼리 간격 20px
