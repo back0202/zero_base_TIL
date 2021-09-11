@@ -1,0 +1,38 @@
+order
+초기값 0
+소수점 안되고 -됨
+5번째 아이템을 첫번쨰 아이템 자리에 배치하고 싶을때 
+item:nth-child(5){
+  oder:-1;            
+}
+만약
+item:nth-child(3){          이렇게 겹치게 되면 html상 코드순서가 먼저 인게 앞으로 간다. 여기서 3이 코드순서가 빠르기 때문에 앞으로 간다.시각적으로만 순서가 바뀐다
+  order: -1;
+}
+
+
+z-index
+item끼리 순서가 겹치게 되었을때.
+
+
+fr 비율
+box{ 
+  display: grid;
+  grid-template-columns: min-content 1fr 1fr;     item의 content의 내용에 따라 달라지는데. 줄어들수 있을때까지 줄어든다. 만약 영어 단어가 있다면 제일 긴영어단어 길이까지 줄어든다,
+  grid-template-columns: max-content 1fr 1fr;     안에내용이 1줄에 볼수있는 형태까지 늘린다.
+}
+
+반응형으로 grid를 디자인할때 유용하게 사용가능
+box{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 100px);      박스를 늘렸을때 빈공간을 체워넣고 싶을때. 박스에 길이가 길어져서 빈공간이 나오면 column이 자동으로 채워지게괸다, 100px로 고정을 했자나 그럼 늘려도 박스에 길이는 늘어 나지 않고 빈공간만 생기자나 1fr비율이 아니니까 그때 auoto-fill쓰면 새로운 column이 생긴다. 원래 저 자리가
+  grid-auto-rows: 50px;                                  몇개를 쓸지 정하는 자리자나 근데 숫자를 지정하지 않고 auto-fil을 적으면 column수가 늘어난다고
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));  가로값 100px을 가지고 있다가 늘렸을떄 늘어난 공간 만큼 같은 비율로 커져서 빈공간을 만들지 않는다                          
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); auto-fill을 해도 빈공간이 생길수 밖에 없음 어느정도 늘리면, 그때 auto-fit을 쓰면 남는 공간이 전부다 꽉채워지게 된다,
+}                                                                기본적을 fill과 fit은 똑같이 동작한다.
+
+
+반응형 앱
+디스플레이 종류에 따라 화면의 크기가 자동으로 최적화 되도록 조절되는 웹페이지
+원래 2개의 웹페이지를 만들었는데 이젠 하나로
+뷰포트 설정은 꼭 해주야지 변화함
