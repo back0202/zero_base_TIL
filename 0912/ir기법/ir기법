@@ -1,0 +1,127 @@
+
+ir기법
+이미지 대체택스트. alt로 쓰기에는 길때. 
+blind를 줘서 텍스트를 숨긴다. 근데 스크린리더기가 읽을수 잇게 숨긴다
+clip:rect(t, t, b, l); 직사각형 형태로 잘라낸다. mask효과라고도 함
+position값이 absolute혹은 fixed일때 사용. overflow값이 :visible일떄 사용안됨
+기본값 auto
+
+position: absolute;로 띄어서 주변 레이아웃에 영향을 끼치지 않도록 하고
+width:1px; height:1px;    크기를 0이 아닌 1px로 줘서 스크린리더가 읽을수 있도록 하고
+clip:rect(0 0 0 0)
+margin: -1px;           position햇으니 top left-1px주면 되는데 왜 맞진으로 했나면 absolute는 부모기준을 따라가다보니 다른데 갈수 있으닌간
+overflow: hidden; 
+clip과 magin과 hidden으로 눈에 보이는 부분 제거
+
+.blind{
+    position:absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="2.css">
+    <title>Document</title>
+</head>
+<body>
+   <div class="wrap">
+       <h1 class="blind">알면알수록 즐거운 네이버쇼핑 윈도시리즈</h1>
+       <p class="blind">쇼핑 즐기고 10%적립 혜택도 받으세요!</p>
+       <ol>
+           <li>
+               <strong class="blind">100포인트만 있으면!</strong>
+               <p class="blind">포인트100원 이상 보유시</p>
+               <a href="" class="link_point"><span class="blind">포인트가 부족하다면</span></a>
+           </li>
+           <li class="blind">
+               <strong>즐기고</strong>
+               <p>1만원 이상구매</p>
+           </li>
+           <li class="blind">
+               <strong>10%적립</strong>
+               <p>최대1만원</p>
+           </li>
+       </ol>
+         <a href="" class="join"><span class="blind">신청하기</span></a>            
+       <h2 class="blind">유의사항</h2>
+       <ul class="blind"> 
+           <li>~~</li> <li>~~~~</li>
+       </ul>
+   </div>
+</body>
+</html>
+
+
+<!-- 태그들은 링크로 클릭할수 있게 해줘야 해서 숨김처리하면 안됨
+a태그는 살아있고 택스트에만 span줘서 블라인드 준다.  -->
+
+
+
+
+@charset "utf-8";
+
+ol{
+    list-style: none;
+}
+body, ol{
+    margin: 0;
+    padding: 0;
+}
+
+.wrap{
+    width: 1020px;
+    height: 650px;
+    margin: 0 auto;
+    background: url(즈소) no-repeat 0 0;
+}
+
+.blind{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.link_point{
+    display: absolute;          
+    top: ;                            
+    width: ;
+    height: ;
+    background: red;
+    opacity: 0.7;
+}
+
+.link_join{
+    display: block;
+    width: ;
+    height: ;
+    background: red;
+    opacity: 0.7;
+}
+
+
+/* display:apsolute; 하면자동으로 블럭화 
+t r b l 줘서 이미지에 a커 맞추고 맞으면 width height로 사진과 맞추고
+맞으면 background랑 opacity없앰*/
+
+
+
