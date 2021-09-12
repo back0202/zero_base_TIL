@@ -164,3 +164,15 @@ width와 height는 상속안됨. box에 1000px주면 item에 1000px 적용되면
   .test2:hover > .del_link {            부모에다 줬기때문에 x에다 마우스 갖다 나도 x안사라짐
       display: block;
   }
+
+
+
+
+/* .main_wrap .content로 적는 이유는 더 좁게 선택할라고 */
+.main_wrap .content{
+    width: 1000px;
+    margin: 0 auto;
+    padding: 50px 0 20px;
+}
+
+/* 이미지를 감싸는 a는 인라인 이라서 display: block; 으로 해야지 img의 크기를 인식한다*/
