@@ -1,0 +1,166 @@
+이미지 목록
+이미지 리스트
+썸내일 리스트라고도 불린다
+
+flot을 쓰게 되면 부모는 자식의 높이 값을 알지못한다,
+그래서 부모에 flot을 해제 시켜줘야한다
+box::after{
+    display: block;
+    content:'';
+    clear: both;
+}
+item{
+    float:left;
+}
+box item + item{
+    margin:left;
+}
+box의 자식 item에 인접한형제 item에 마진을 주게 되는데, 1번을 제외한 2번item에 마진 3번에 마진 이렇게 줄수 있음
+
+nth-child주면 하나만 margin을 줄수도 있찌만 하나만 margin을 안줄수 있게 해서 유용하게 사용가능
+
+
+한줄 말줄임
+overflow: hidden     with넘어가면 숨김
+text-overflow: elipsis           ..생김
+whites-space: nowrap        with넘어가면 줄바꿈 되는데 줄바꿈되지말라고 한줄 말줄일때 사용
+
+
+
+여러줄
+max-height         자기의 lineheight 곱하기 clapm. height로 뜨면 줄이 줄어들었을때 높이값을 다 가지고 있지만 max로쓰면 글자가 있는만큼으로 줄어든다
+overflow:hidden
+text-overflow:elipsis
+disply: -wepkibox
+wepkibox-orient:vertical
+wepkiboxline-clamp:2    몇줄로 할지 wepkibox는 안되는 부라우저ㅔ서 사용할라고 
+
+
+이미지 액자효과. 사진위로 글자를쓸려고 만든거 같음. 이렇게 하는게 딤드인거 같음
+아마 시메틱 마크업할려고 이래하나봄. img에는 외곽선을 못 주자나 border은 블럭 박스 요소에 주는 거닌깐
+after사용해서 빈요소를 만들고 그걸 띄워서 img위에대가 올려 놓느거 같음
+box{
+    position: relative;         자식이 apsolute해서 가상의 구조 0 0 0 0을 줘서 이미지 위로 오게 할려고.
+    width:200px;                width와 height는 img의 크기만큼 만든다
+    height:200px
+}
+
+box::after{
+    position: apsolute;                 
+    top:0;                         가상의 구조를 만들어서  0 0 0 0 을 주면 부모의 width height만들수 있따.
+    right:0;
+    bottom:0;
+    left:0;
+    content:'';
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+font-size를 쓰면 line-height를 입력하는게 좋다. 2~4px 크게
+
+
+width와 height는 상속안됨. box에 1000px주면 item에 1000px 적용되면 안되자나. height도 마찬가지다
+
+
+
+
+아이콘 상태변경
+<div class="change"><span class="blind">첫째</span></div>
+<div class="change up"><span class="blind">둘째</span></div>
+<div class="change down"><span class="blind">셋째</span></div>
+
+
+
+.change {
+    float: left;
+    padding: 10px;
+    text-align: center;
+  }
+  .change:after {
+    display: block;
+    width: 100px;
+    height: 100px;
+    content: '';
+    border: 1px solid gray;
+    background-color: pink;
+  }
+  .up:after {                        위에건 빈박스를 만드는거고 이 after은 백그라운드 이미지를 넣는것(아니꼭 after을 사용할필요가 있나?)
+    background: url(https://image.flaticon.com/icons/png/512/187/187142.png) no-repeat;
+    background-size: cover;           백그라운드 컬러는 이미지뒤로 가는게 원칙이닌깐 이미지가 올라 오는게 아닐꺼?
+  }
+  .down:after {
+    background: url(https://image.flaticon.com/icons/png/512/187/187154.png) no-repeat;
+    background-size: cover;
+  }
+  /* IR(*Image Replacement) 처리 */
+  .blind {
+    overflow: hidden;
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+  }
+
+
+  마우스 오버시 버튼노출
+  <div class="box test1">
+    <a href="#" class="img_link">
+      <img src="https://image.flaticon.com/icons/png/512/124/124027.png" width="100" height="100" alt="">
+      <span class="alert">99</span>
+    </a>
+    <a href="#" class="del_link">x</a>              이걸 img_link안에 안넣는 이유는 전송되는 링크가달라서 아닐까
+  </div>
+  
+  <div class="box test2">
+    <a href="#" class="img_link">
+      <img src="https://image.flaticon.com/icons/png/512/124/124027.png" width="100" height="100" alt="">
+      <span class="alert">99</span>
+    </a>
+    <a href="#" class="del_link">x</a>
+  </div>
+
+  .box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+  .box + .box {
+    margin-top: 30px;
+  }
+  .img_link {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+  }
+  .alert {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    padding: 0 10px;
+    font-size: 12px;
+    line-height: 18px;  
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .del_link {
+    display: none;
+    position: absolute;
+    top:0;
+    right: 0;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .test1 .img_link:hover + .del_link {               a다 :hover을 줬을때 x버튼이 나오자나, 그 x버튼에다가 마우스 갖다대면 x사라졌다가 다시나오고 반복한다. 그이유는 img_link랑 del_link는 형제요소기때문이다.
+      display: block;
+  }
+  .test2:hover > .del_link {            부모에다 줬기때문에 x에다 마우스 갖다 나도 x안사라짐
+      display: block;
+  }
