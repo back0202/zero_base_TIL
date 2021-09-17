@@ -1,0 +1,237 @@
+switch
+if else문을 알고 있따면 몰라도 된다. 
+switch로 작성할수 있는거는 if else로도 작성 가능하다
+case가 다양할 경우 보다 간결하게 쓸수있다는 장점이 있다
+switch(평가){
+    case a:
+    a일떄 코드
+    case b:
+    b일떄 코드
+}
+이거랑 위에거 동일
+if(평가==a){
+    a일떄 코드
+}else if(평가==b){
+    b일떄 코드
+}
+let fruit = promt('무슨 과일을 사고 싶나요?')
+switch(fruit){
+    case '사과' :
+        console.log('100원입니다');
+        break;
+    case '바나나' :
+        console.log('200원입니다');
+        break;
+    case '키위' : 
+    case '멜론' :                   
+        console.log('300원입니다');     값이 같다면 이렇게 묶어서도 가능
+        break;
+    default :
+        console.log('그런과일은 없습니다')   
+}
+break 안걸어 주면 만약 바나나를 입력했을떄 뒤에 것들도 다 나온다
+
+
+
+
+
+함수는 중복을 줄여준다
+함수(function)
+colnsole    alert     confirm
+함수       함수이름(매개변수)                 매개변수는 인수랑 비슷하지만 완번 같은 건 아님. 매개변수는 없을수도 있고 한개일수도 있고 2개이상잀도 있다.
+function sayHello(name){
+    console.log(`Hello, ${name}`)
+}
+sayHello('mike')     함수명 뒤에 괄로를 붙여서 호출할수 있따
+
+
+function showError(){
+    alert('애러가 발생했습니다')
+}
+showError()
+유지 보수가 쉽다
+
+function sayHello(name){
+    const msg = `Hello, ${name}`
+    console.log(msg)
+}
+sayHello('mike')
+
+function sayHello(name){
+    let msg = `hello`                여기에 console.log(name)을 찍으면 undifined뜬다. 
+    if(name){                           if(undifined)는 false기 때문에
+        msg = `hello, ${name}`              여기 실행이 안됨 
+    }
+    console.log(msg)                            그래서 여기 호출은 let msg = `hello`라서 hello가 뜬다
+}
+sayHello();        매개변수 없이 선언했을때    hello뜬다
+
+
+
+function sayHello(name){
+    let msg = `hello`
+    if(name){
+        msg+=name            msg += ',' + name 이렇게 하면 hello, mike뜬다
+    }
+    console.log(msg)
+}
+sayHello('mike');    hellomike뜬다
+console.log(msg) 하면 애러가 난다.   함수안에있는 변수와 상수는 바깥과 연결안되닌깐. 바깥에서도 사용하고 싶으면 밭으로 let msg를 뺘줘야한다
+이렇게 하면 sayHello('mike')랑 똑같은 값이 되는데 그 이유는 sayHello를 먼저 호출하면서 msg값이 바껴서 그럼. 
+함수 바깥에 있는 변수를 전역변수
+함수 안에 있는 변수를 지역변수
+
+
+let msg = 'wellcome'
+function sayHello(name){
+    let msg = 'hello'
+    console.log(msg + ' ' + name);
+}
+sayHello('mike');
+한번 선언한 let msg는 한번도 선언 할수 없는데 함수 안에 들어가 있으면 선언가능하다
+
+let name = 'mike';
+function sayHello(name){
+    console.log(name)
+}
+sayHello()           이렇게하면 undifined가 뜬다
+sayHello('jane')    하면 jane뜬다. 매개변수로 받은 값은 복사 된후 함수의 지역변수가 된다.
+
+function sayHello(name){
+    let newName = name || 'frind';
+    let msg = `hello, ${newName}`;
+    console.log(msg)
+}
+sayHello();               hello, frind
+sayHello('jane')            hello, jane
+
+매개변수의 기본값 설정
+function sayHello(name = 'frind'){         name의 디폴트 값은 frind. 이 디폴트 값은 name이 없을때만 할당
+    let msg = `hello, ${name}`;
+    console.log(msg)
+}
+sayHello()
+sayHello('jane')
+
+return호출
+function add(num1, num2){
+    return num1 + num2
+}                           
+const result = add(1, 2)          return된 값은 result에 반환한다
+console.log(result)
+
+function showError(){
+    alert('애러발생')                    여기에 return하고 오른쪽에 아무것도 없어도 undifined를 반환한다.return문은 그 즉시 오른쪽 값을 반환하고 종료한다. return밑에 오는건 실행안됨. 그래서 함수를 정리하는 목적으로 사용하기도 함
+}
+const result = showError()
+console.log(result)             이렇게 하면 경고창뜨고 확인누르면 undifined를 반환한다. return문이 없는 함수는 항상 undifined를 반환한다.
+
+함수
+한번에 한작업에 집중
+읽기 쉽고 한번에 어떤 동작인지 알수 있게 네이밍
+showError 에러를 보여줌
+getName 이름을 얻어옴
+createUserDate 유저데이터 생성
+checkLogin  로그인 여부 체크
+
+위에게 함수 선언문
+
+이건 함수 표현식
+let sayHello = function(){
+    consle.log('Hello')
+}
+차이는 
+함수 선언문은 어디서든 호출가능
+sayHello()
+function sayHello(){
+
+}이렇게도 호출가능
+
+console.log(num)
+let num = 1
+이건 호출안됨 그럼 위에건 어떻게 호출 됐냐면
+자바스크립트는 실행전 모든 함수 선언문을 찾아서 생성해둠
+이걸 호이스팅
+
+함수 표현식은 코드에 도달하면 생성이라 위에서 부터 읽은다
+편한거 쓰면 됨
+
+
+화살표 함수(arrow funtion)
+let add = function(num1, num2){
+    return num1 + num2
+}
+이걸 화살표 함수로 바꾸면 
+let add = (num1, num2) => {             function을 없애고 매개변수 뒤에 =>추가
+    return num1 + num2
+}
+또 한줄이고 리턴문이 있어서
+let add = (num1, num2) => ( 
+     num1 + num2              이렇게 사용 가능
+)
+리턴문이 한줄이라면 괄호도 생략가능
+let add = (num1, num2) =>  num1 + num2
+인수가 하나면 괄호 생략가능
+let add = num1, num2 =>  `hello ${name}`
+인수가 없는 함수라면 괄호생략불가능
+let showError = () =>  {
+    alert('error!')
+}
+리턴문이 있다고 해줘 리턴전에 여러줄의 코드가 있을떄 {}생략불가능
+let add = function(num1, num2){
+    const result = num1 + num2
+    return result
+}
+
+let add = function(num1, num2){
+    return num1 + num2
+}
+
+
+
+
+
+object 객체
+const superman = {            key: value   ,로 구분
+    name: 'clark', 
+    age: 33
+}
+
+접근
+superman.name     clerk
+superman['age']    33
+추가
+superman.gender='male'
+superman['hairColor']='black'
+삭제
+delete superman.hairColor
+
+단축 프로퍼티
+const name = 'clerk'
+const age = 33
+
+const superman{
+    name: name,
+    age: age,
+    gender: 'male'
+}
+이걸
+const superman{
+    name,
+    age,
+    gender: 'male'
+} 이렇게 쓸후도 있음
+
+존재 여부 확인
+const superman{
+    name: 'clerk',
+    age: 33
+}
+superman.birthday;
+undifined뜬다
+이떄 in연산자를 쓰면 프로퍼티가 있는지 확인 가능
+'birthday' in superman     false뜨고
+'age' in superman      true뜬다
+. []안하고 in을 언제 쓰냐명ㄴ 어떤 값인지 확신할수 없을때. 함수 인자를 받거나 통신을 통해서 데이터를 받아 올대
+
+1 19 21
