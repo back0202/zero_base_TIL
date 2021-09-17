@@ -1,0 +1,431 @@
+@charset "utf-8";
+/* 에릭마이어 리셋 css */
+body{
+    font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+    min-width: 980px;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+
+
+
+/* 블라인드 */
+.blind{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+
+
+
+/* 이미지랑 링크를 맞출려면 margin:0 auto를 활용해야함.
+margin:0 auto를 할려면 width값이 있어야 한다.
+background:url이랑 color을 따로 줘야한다. url에 color을 같이 주게되면
+980px로 설정한 곳 까지만 배경색이 들어 가기때문.
+area에 height를 줘야 이미지를 center로 해서 중앙에 맞출수 있음  */
+/* 로고 */
+.logo_wrap{
+    position: fixed;
+    background-color: rgba(64, 64, 64, 0.75);
+    width: 100%;
+    z-index: 10000;
+}
+.logo_area{
+    position: relative;
+    width: 980px;           
+    height: 46px;
+    background: url(./image/logo.png) no-repeat 0 center;
+    margin: 0 auto;
+}
+
+.logo_link{
+    position: absolute;
+    width: 110px;
+    height: 23px;
+    top:12px;
+}
+
+
+/* 이미지에 center로 맞춰야 지만 브라우저를 늘리고 줄였을때 중앙정렬함 */
+/* invite */
+.invite{
+    background: url(./image/section_invite.jpg) no-repeat center;
+    background-color: #fff;
+    height: 750px;
+}
+
+
+
+/* creater */
+.creator{
+    background: url(./image/section_creator.jpg) no-repeat center;
+    background-color: #f9939d;
+    height: 822px;
+}
+
+
+/* food_store */
+.food_store{
+    background: url(./image/section_store.jpg) no-repeat center;
+    background-color: #d5e43f;
+    height: 1084px;
+}
+.food_store_area{
+    width: 980px;
+    margin: 0 auto;
+    padding-top: 335px;
+    display: grid;
+    grid-template-columns: repeat(4, 230px);
+    gap: 0 20px;
+}
+.food_store_area li a{
+    position: relative;
+    display: block;
+    width: 230px;
+    height: 230px;
+}
+/* text-align으로 자식요소들 가로중앙정렬
+vertical-align은 인라인에만 사용가능 */
+.food_store_area .dimd{
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background:rgba(96, 132, 2, 0.9);
+    text-align: center;
+}
+/* margin-top: 30%을 줘서 반응형에도 반응하게 */
+.food_store_area .dimd strong{
+    display: block;
+    font-size: 65px;
+    line-height: 69px; 
+    color: #fff;
+    margin-top: 30%;
+}
+ 
+.food_store_area .dimd p{
+    font-size: 20px;
+    line-height: 24px;
+    color: #fff;
+}
+/* 하... :hover안돼서 3시간 잡고 있었는데
+서버문제였네... 새로고침해서 해결함. */
+.food_store_area a:hover > .dimd{
+    display: block;
+}
+.food_store_area a:focus > .dimd{
+    display: block;
+}
+.fruit_text_itv{
+    padding-top: 5%;
+}
+.fruit_text{
+    font-size: 20px;
+    color: #1b1b21;
+    line-height: 40px;
+}
+.fruit_pr{
+    font-size: 28px;
+    font-weight: bold;
+}
+.fruit_box{
+    text-align: center;
+    height: 140px;
+}
+.banana_reduce{
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+/* recipe */
+.recipe_wrap{
+    position: relative;
+    background: url(./image/section_recipe.png) no-repeat center 90px, url(./image/pattern_recipe.png) repeat-x center;
+    height: 1030px;
+    background-color: #b893f6;
+}
+.recipe_area{
+    width: 980px;
+    margin: 0 auto;
+    display: flex;
+    height: 770px;
+}
+.recipe_area > li{
+    position: relative;
+    width: 480px;
+}
+.recipe_area > li + li{
+    margin-left: 20px;
+}
+.recipe_link{
+    position: absolute;
+    width: 480px;
+    height: 482px;
+    top: 290px;
+}
+
+
+
+
+
+.recipe_button{
+    position: relative;
+    background: url(./image/go_recipe.gif) no-repeat 0 center;
+    width: 310px;
+    height: 260px;
+    margin: 0 auto;
+}
+.recipe_button a{
+    position: absolute;
+    width: 310px;
+    height: 91px;
+    top: 85px;
+}
+.recipe_button img{
+    display: none;
+}
+.recipe_button a:hover > img{
+    display: block;
+}
+.recipe_button a:focus > img{
+    display: block;
+}
+
+
+
+
+/* faq */
+.faq_wrap {
+    width: 100%;
+    padding: 100px 0;
+    margin: 0 auto;
+    background: #fff;
+}
+.faq_title {
+    height: 100px;
+    background: url(../image/title_faq.gif) no-repeat center;
+    background-size: 98px, 50px;
+    background-color: #fff;
+}
+.faq_box {
+    position: relative;
+    width: 980px;
+    border-top: 1px solid #a1a5ad;
+    margin: 0 auto;
+}
+
+.faq_box:nth-child(n+5) {
+    border-bottom: 1px solid #a1a5ad;
+}
+
+
+
+.faq_question {
+    width: 850px;
+    min-height: 28px;
+    margin: 0 auto;
+    padding: 20px 40px 20px 40px;
+}
+
+.question_text {
+    font-size: 20px;
+    font-weight: bold;
+    word-break: break-all;
+    line-height: 28px;
+}
+
+.btn_point {
+    position: absolute;
+    width: 70px;
+    height: 100%;
+    top:0;
+    right: 0;
+    cursor:pointer;
+    z-index: 9000;
+}
+
+.question_logo {
+    position: absolute;
+    width: 21px;
+    height: 20px;
+    background: url(../image/icon_question.gif) no-repeat center;
+    content: '';
+    top: 23px;
+    left: 27px;
+}
+
+.btn_open {
+    position: absolute;
+    width: 23px;
+    height: 12px;
+    background: url(../image/icon_arrow_down.gif) no-repeat center;
+    content: '';
+    top: 29px;
+    right: 23px;
+    border: 0;
+}
+
+.btn_close {
+    display: none;
+    position: absolute;
+    width: 23px;
+    height: 12px;
+    background: url(../image/icon_arrow_up.gif) no-repeat center;
+    top: 29px;
+    right: 23px;
+    border: 0;
+}
+
+.faq_answer {
+    display: none;
+    position:relative;
+    background:#f7f8fa;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}
+
+.answer_logo {
+    position: absolute;
+    width: 21px;
+    height: 17px;
+    background: url(../image/icon_answer.gif) no-repeat center;
+    content: '';
+    top: 33px;
+    left: 27px;
+}
+
+.answer_text {
+    padding: 30px;
+    margin-left: 35px;
+    font-size: 16px;
+    line-height: 28px;
+    color: #60656e;
+    white-space:pre-wrap;
+}
+
+
+#open_btn1:checked ~ .faq_answer,
+#open_btn2:checked ~ .faq_answer,
+#open_btn3:checked ~ .faq_answer,
+#open_btn4:checked ~ .faq_answer,
+#open_btn5:checked ~ .faq_answer,
+#open_btn1:checked ~ .faq_question .btn_close,
+#open_btn2:checked ~ .faq_question .btn_close,
+#open_btn3:checked ~ .faq_question .btn_close,
+#open_btn4:checked ~ .faq_question .btn_close,
+#open_btn5:checked ~ .faq_question .btn_close {
+    display: block;
+}
+
+
+#open_btn1:checked ~ .faq_question .btn_open,
+#open_btn2:checked ~ .faq_question .btn_open,
+#open_btn3:checked ~ .faq_question .btn_open,
+#open_btn4:checked ~ .faq_question .btn_open,
+#open_btn5:checked ~ .faq_question .btn_open {
+    display: none;
+} 
+
+/* 클릭영역 */
+
+/* aside */
+aside a{
+    display: block;
+    position: fixed;
+    right: 0;
+    bottom: 180px;
+    background: url(./image/go_top.gif) no-repeat 0 0;
+    width: 100px;
+    height: 100px;
+}
+
+
+/* footer */
+footer{
+    background-color: #e0e4eb;
+    height: 80px;
+}
+footer p{
+    width: 980px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 25px;
+    font-size: 18px;
+    color: #70757d;
+}
+footer span{
+    font-weight: bold;
+}
+
+/* after안쓰는 이유는 a라서. after 외곽선이나 글씨쓸려고
+근데 이걸 굳이 따라해야하나 싶긴한데 시메틱애기가 나왔으니 일단 외구자
+ 
+baackground로 이미지를 주는 이유가 배경인 이유도 있지만 이미지에 글씨같은거 있어서 이지 않을까.
+ir기법이 그런게 아닐까.
+
+하다보니깐 의문인게 ul li a 이렇게 자식요소로 있으면 ul li 에 높이 값이나 이런걸 설정 안햇을때 a는 apsolute로
+띄우면 ul li는 높이 값을 안 가지자나 a는 레이아웃에서 벗어 나닌깐 그떄 ul li에 높이 값을 설정해줘야 하나?
+시메틱할려면 해야 할거 같긴한데 이걸 뭐라고 검색하지.
+해줘야 할거 같아서 했는데 오히려 안좋을거 같은데? 크기를 찾이 하닌깐 브라우저에 랜더링데는데 시간이 더 걸리지 
+않을까
+
+
+.recipe_button에 padding-top을 줫는데 왜 배경은 안움직이고 내용만 움직이지? 바탕은 안움직이나*/
+/* input label을 이용해서 질문페이지에서 열렸다 다쳤다 하는거 만들수 있음 */
