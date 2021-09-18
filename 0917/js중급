@@ -1,0 +1,280 @@
+for in 반복문
+for(let key in superman){
+    console.log(key)
+    console.log([superman.key])
+}
+
+function makeObject(name, age){
+    return{
+        name: name.
+        age: age,
+        hobby: 'footbal'
+    }
+}
+const Mike = makeObject('Mike', 30)
+console.log(mike)
+이렇게하면
+object{
+    name: 'mike',
+    age: 30,
+    hobby: 'foorbal'
+}나온다
+그리고 축약가능
+function makeObject(name, age){
+    return{
+        name,
+        age,
+        hobby: 'footbal'
+    }
+}이렇게
+console.log('age' in Mike)          true
+console.log('birthday' in Mike)     false
+
+
+
+
+function isAdult(user){
+    if(user.age <20){
+        return false
+    }
+    return true
+}
+const Mike = {
+    name: 'mike',
+    age: 30
+}
+
+const Jane{
+    name: 'jane'
+}
+console.log(isAdult(Mike))    true나오고
+console.log(isAdult(Jane))     age가 없는데도 true나온다 그이유는  if(Jane.age<20)이 false라서 return true를 반환해서 그럼
+
+function isAdult(user){
+    if(!('age' in user) || user.age <20){
+        return false
+    }
+    return true
+}
+const Mike = {
+    name: 'mike',
+    age: 30
+}
+
+const Jane{
+    name: 'jane'
+} 이렇게 바꾸ㅕㄴ 됨
+
+
+
+const Mike = {
+    name: 'Mike',
+    age: 30
+}
+for(x in Mike){                  x는 키값인데 key로 적어도 되고 아무거나 적어도 됨. 그럼 name age 이렇게 나옴
+    console.log(x)
+    console.log(Mike[x])        Mike 30이러헤 나옴
+}
+
+
+
+
+
+const superman{
+    fly: function(){                객체이프로퍼티로 할당된 함수를 method
+        console.log('날아갑니다')
+    }
+}
+superman.fly    날아갑니다
+이렇게 줄이기 가능
+fly(){
+
+}
+
+const user ={
+    name: 'Mike',
+    sayHello: function(){
+        console.log(`hello i'm ${user.name}`)   이건 문제가 발생할수 있다. this.name을 쓰면됨
+    }
+}
+user.sayHello()      Mike나온다
+
+
+화살표 함수는 일반 함수랑 달리 자신만의 this를 가지지 않는다.
+화살표 함수 내부에서 this를 사용하면 그 this는 외부에서 값을 가져옴
+let boy = {
+    name: 'Mike',
+    sayHello: () => {
+        console.log(this)      화살표함수의 this 전역개체       브라우저 환경에서는 window   node.js에서는 global
+    }
+}
+boy.sayHello() 
+
+let boy = {
+    name: 'Mike',
+    showName: function(){
+        console.log(boy.name)
+    }
+}
+let man = boy
+man.name = 'tom'
+console.log(boy.name)    하면 tom나옴   이해안됨 내생각에는 console.log(boy.name)호출하면 Mike자나 근데 boy가 man에 할당되기 때문에 tom으로 되거나
+위에서 부터 읽이니 boy가 man에 할당이 되있는 상태에서 man의 네임을 tom으로 바껴있으니 tom이 나오는건가 
+
+let boy = {
+    name: 'Mike',
+    showName: function(){
+        console.log(boy.name)
+    }
+}
+let man = boy
+boy = null
+man.showName()         애러가 뜸
+
+let boy = {
+    name: 'Mike',
+    showName: function(){
+        console.log(this.name)              this는 해당 객체를 가르킴 boy가 아니라 객체
+    }
+}
+let man = boy
+boy = null
+man.showName()                  Mike뜸
+
+화살표 함수는 객체 매써드에는 쓰지마라
+
+
+
+배열 
+순서가 있는 리스트
+1번에 출수
+2빈에 영희
+30번에 민수
+이걸 코드로 표현하면
+let students = ['출수', '영희', '민수']  고유번호를 사용함 이걸 index 0부터 시작
+console.log(students[0])   출수 이렇게 읽을수 있ㄱ
+students[0] = '민정'    이렇게 수정 가능     수정이다.
+배열은 문자형 뿐만아니라 숫자 함수 객체 배열도 포함 가능 블린도 넣을수 있음
+students.length는 배열의 길이를 구할수 잇음
+students.push['광천'] 배열맨뒤에 추가
+.pop()    배열맨뒤에거 삭제
+.unshift('일') 맨앞 추가
+.shift()맨앞 제거
+push랑 unshift는 한번에 여러개 가능
+반복을 위해서 배열 씀
+for
+for in은 단점이 많아서 권장하지 않음
+for of
+let days= ['월', '화'] 
+for(let day of days){                 day는 아무 이름이나 써도 됨
+    console.log(day)
+} for of는 for문 보다는 간단한데 index를 못 얻는다는 단점이 있다
+
+
+
+var let 차이
+var name = 'Mike'
+console.log(name)
+var name = 'tom'
+var는 한번선언된 변수를 다시 선언할수 있따
+
+console.log(name)      이렇게 사용해도 애러 안뜸 이유 호이스팅 떄문에
+var name = 'tom'
+
+var name                 이렇개 됨  위에거랑 둘다 undefined 뜸
+console.log(name)        선언은 호이스팅 되지만 선언의 값은 안됨
+name = 'tom'
+
+let가 const도 호이스팅 되지만 왜 애러가 뜨냐면
+temporal dead zone 때문ㅇ
+console.log(name)   여기가 tdz    tdz있는 영역은 사용불가능
+const name = 'Mike'    함수 선언및 할당
+console.log(name)      사용가능
+
+let age = 30
+function showAge(){
+    console/log(age)     tdz
+    let age = 20;        여기에 이러면 안뜸 왜냐면 호이스팅 때문에 let age가 콘솔위로 올라감
+}
+
+
+변수의 생성과정
+1 선언단계
+2 초기화 단걔
+3 할당 단계
+
+var
+1 선언과 초기화 동시
+2 할당 단계 
+그래서 할당전에 호출하면 애러가 아니라 undefined가 나온다
+
+const는 선언 초기화 할당이 한번에
+const gender하면 애러 발새
+let name 
+name = 'mike'
+ver name
+name = 'tom' 2개는 가능
+
+var는 함수 스코프
+let const는 블럭 스코프
+블럭스코프는 코드 블럭내에서 선언한 변수는 코드블럭내에서 유효하며 코드블럭 밖에서는 접근 불가
+블럭스코프는
+함수 if  for while try/catch문 등
+
+const age = 30
+if(age>19){
+    var txt = '성인'
+}
+console.log(txt) 성인     var는 코드블럭 내부에 걸 빼올수 있따
+
+하지만 위는 블럭스코프고 함수 스코프에서는 var도 안됨
+function add(num1, num2){
+    var result = num1 + num2
+}
+add(2, 3)
+console.log(result)    여기서는 var 못 빼옴 애러뜸
+
+var는 이제 거의 안씀
+
+
+
+
+생상자 함수
+객체 리터럴
+let user ={
+    name: 'mike',
+    age: 30 
+}    이게 객체 리터럴
+
+function User(name, age){         생성자함수는 보통 첫글자를 대문자로 해서 만듬
+    this.name = name
+    this.age = age
+}
+let user1 = new User('Mike', 30)         new연산자를 활용해서 함수를 호출
+let user2 = new User('jane', 20)
+let user3 = new User('tim', 19)
+이러면 객체 3를 만듬거
+user1
+User{name: 'mike', age: 30}
+
+어떻게 실행하냐면
+function User(name, age){  
+    this = {}               빈객체를 만들고 this에 할당
+this.name = name
+this.age = age
+    return this               this반환           이2개는 코드에 없다. new를 붙여 실행하는 순간 알고리즘이 저렇게 실행한다
+}
+new 함수명()
+
+
+function User(name, age){  
+    this.name = name
+    this.age = age
+    this.sayName = function(){
+        console.log(this.name)            this는 user5를 가르킨다
+    }
+}
+let user5 = new User('han', 40)
+user5.sayName()
+
+중급 08 03
