@@ -1,0 +1,125 @@
+.splice(n, m)   n부터 m개 지워라
+let arr = [1, 2, 3, 4, 5]
+arr.splice(1, 2)
+console.log(arr)      [1, 4,5]
+
+.splice(n, m, x)           x 추가
+let arr = [1, 2, 3, 4, 5] 
+arr.splice(1, 2, 100, 200)    
+console.log(arr)      [1, 100, 200, 4, 5]
+
+let arr = ['나는', '철수', '입니다']
+arr.splice(1, 0, '대한민군', '소방관')
+console.log(arr)      ['나는', '대한민국', '소방관', '입니다']
+
+삭제된 요소 반환
+let arr = [1, 2, 3, 4, 5] 
+let result = [arr.splice(1, 2)]
+console.log(arr)     [1, 4, 5]
+console.log(result)     [2, 3]
+
+
+.slice(n, m)      n부터 m까지 반환인데 m은 포함안됨
+let arr = [1, 2, 3, 4, 5] 
+arr.slice(1, 4)   [ 2, 3, 4]
+m안쓰면 배열 끝까지
+괄호안에 아묵서도 안넣으면 배열 복사
+let arr2 = arr.slice()
+console.log(arr2)       [1, 2, 3, 4, 5] 
+
+
+
+.concat(arr2, arr3....)    합쳐서 새배열 반환
+lat arr =  [1, 2]
+arr.concat([3, 4])      [1, 2, 3, 4]
+arr.concat([3,4], [5, 6])       [1, 2, 3, 4, 5]
+arr.concat([3,4], 5, 6)        [1, 2, 3, 4, 5]     배열이 아닌걸 넣어도 배열로 반환
+
+
+지금까지 배열의 반복은 for문이나 for of문을 사용했는데 
+.forEach(fn) 로 반복 할수 있따
+let user = ['mike', 'tom', jane]
+user.forEach((item, index, arr) => {    forEach는 함수를 인수로 받는다. item은 해당요소  index는 index   arr은 해당배열 자체 
+     console.log(item)        mike tom jane나옴                           보통 item과 index만 사용
+})                                                        
+
+
+let user = ['mike', 'tom', 'jane']
+user.forEach((name, index) => { 
+    console.log(`${index + 1}. ${name}`)          1. mike     2. tom     3. jane 나옴
+})        
+
+
+
+let arr = [1, 2, 3, 4, 5, 1, 2, 3]    
+arr.indexOf(3)      2       없으면 -1반환
+arr.indexOf(3, 3)    7      이렇게 인수가 2개면 2번쨰건 시작위치. 숫자3부터 시작해서 3을 찾아라
+arr.lastIndexOf(3)         끝에서 부터 찾고 싶으면 
+
+.includes()  인덱스는 상관없고 포함하고 있는지만 알고 싶으면
+arr.includes(2)     true
+
+
+
+.find(fn)       .findIndex(fn)        찾는다는 의미는 비슷하지만 복잡한 연산이 가능하도록 함수를 전달할수 있다
+짝수를 찾아낸다던지 성인을 찾아낸다던지 할수 있음
+첫번째 true값만 반환하고 끝난다 없으면 undefind반환
+findIndex는 해당인덱스를 반환 없으면 -1 
+
+let arr = [1, 2, 3, 4, 5]
+const result = arr.find((item) =>{
+    return  item%2 ===0         짝수를 반환해라
+})
+console.log(result)
+
+
+let userList = [
+    {name: 'mike', age: 30},
+    {name: 'jane', age: 27},
+    {name: 'tom', age: 10}
+]
+객체가 들어있는 배열에는 indexof로 찾기 힘들다
+const result = userList.find((user) => {
+    if(user.age < 19){
+        return true
+    }
+    return false
+})
+console.log(result)                {name: 'tom'. age: 10} 왜 ㅣ렇게 나오지
+
+const result = userList.findIndex((user) => {
+    if(user.age < 19){
+        return true
+    }
+    return false
+})
+console.log(result)       2     첫번쨰 true값을 반환하고 끝난다. 없으면 undifined 뜸
+
+
+find는 하나만 찾았는데 조건을 만족시키는 모든 것을 알고 싶으면
+.filter(fn)
+
+let arr = [1, 2, 3, 4, 5]
+const result = arr.filter((item) =>{
+    return  item%2 ===0  
+})
+console.log(result)         [2, 4]
+
+.reverse()   역순 정렬
+최근 가입된 순서 부터 보여준다거나 가장최근에 작성한 글 부터 보여줄떄 사용
+
+.map(fn)     함수를 받아 특정 기능을 시행하고 새로운 배열반환
+
+let userList = [
+    {name: 'mike', age:30},
+    {name: 'jan',  age: 27},
+    {name: 'tom', age: 10}
+]
+let newUserList = userList.map((user, index) => {
+   return Object.assign({}, uesr, {
+        isAdult: user.age > 19,
+    })
+})
+console.log(newUserList)
+
+50
