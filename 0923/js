@@ -1,0 +1,260 @@
+class
+es6에 추가된 스펙
+지금까지 비슷한 형태의 객체를 생성하기 위해서 생성자 함수 를 사용했다
+
+const User = function(name, age){
+    this.name = name
+    this.age = age
+    this,showName = function(){
+        console.log(this.name)
+    }
+}
+
+const mike = new User('mike', 30)
+
+이걸 클래스로 만들수 있음
+class User2{
+    constructor(name, age){        constructor은 객체를 만들어 주는 생성자 매서드
+        this.name = name            여기가 객체를 초기화 하기 위한 값
+        this.age = age
+    }
+    showName(){                클래스에 정의한 매서드는 User2에 prototype에 저장된다. 마이크는 객체내부에 showname이 있다
+        console.log(this.name)           prototype에서 constructor는 class라고 명시되어있다
+    }
+}
+const tom = new User2('tom', 19)    new를 통해 호출하면 자동으로 실행된다. 여기서 new를 빼면 애러뜬다
+
+
+생성자 함수에서 위랑 동일하게 하면
+const User = function(name, age){
+    this.name = name
+    this.age = age
+}
+User.prototype.showName= function(){
+    console.log(this.name)
+}이렇게하면 prototype에 showname이 저장된다
+
+const mike = new User('mike', 30)      여기서 new를 빼고 하면 undifined뜬다.개발자가 실수한 코드지만 애러라고 즉시 알아차리지 못한다
+이걸 for in으로 돌리면 name  age showname까지 다 나온다
+반면에 calss는 name age만 보여준다. 
+이전에 for in문은 프로토타입에 포함된 프로포티들을 다 보여준다고 했고, 객체가 가진 프로포티만 확인하기위해서
+hasOwnProperty를 사용해야 해따. 하지만 class는 for in문에서 제외
+
+
+이번에는상속
+생산자함수에서 상속은 프로토타입으로 구현했다
+class에서 상속은 extends사용
+class Car{
+    constructor(color){
+        this.color=color
+        this.wheels = 4
+    }
+    drive(){
+        console.log('drive..')
+    }
+    stop(){
+        console.log('stop')
+    }
+}
+class bmw extends Car{
+    park(){                       프로토타입에서 선언한 매서드는 prototype 밑으로 들어간다.
+        console.log('park')       
+    }
+}
+const z4 = new Bmw('blue')    
+이렇게 되면 
+bmw{
+    color: 'blue',
+    wheels: 4
+    <!-- prototype -->에 park있다
+        <!-- prototype 여기에 drive와 stop있따 -->
+}
+
+메서드 오버라이딩
+bmw 매서드에 car에서 정의한 매서드가 존재한다면
+class Car{
+    constructor(color){
+        this.color=color
+        this.wheels = 4
+    }
+    drive(){
+        console.log('drive..')
+    }
+    stop(){
+        console.log('stop')
+    }
+}
+class bmw extends Car{
+    park(){                       
+        console.log('park')       
+    }
+    stop(){
+        console.log('off')
+    }
+}
+const z4 = new Bmw('blue')      off가 나온다. 동일한 이름의 매서드가 존재하면 덮어쓰게 된다
+
+부모의 매서드를 사용하면서 확장하고 싶다면 super사용
+class Car{
+    constructor(color){
+        this.color=color
+        this.wheels = 4
+    }
+    drive(){
+        console.log('drive..')
+    }
+    stop(){
+        console.log('stop')
+    }
+}
+class bmw extends Car{
+    park(){                       
+        console.log('park')       
+    }
+    stop(){
+        super.stop()                 이렇게 하면 car의 stop을 사용하게 된다. 
+        console.log('off')
+    }
+}
+const z4 = new Bmw('blue')         stop랑 off나온다 
+
+
+
+
+이번엔 constructor 생성자 오버라이딩 
+class Car{
+    constructor(color){     //{}     클래스에 콘스트럭털은 빈개게로 만들어 주고 this로 이객체를 가르키데 된다
+        this.color=color            this로 이객체를 가르키데 된다
+        this.wheels = 4
+    }
+    drive(){
+        console.log('drive..')
+    }
+    stop(){
+        console.log('stop')
+    }
+}
+class bmw extends Car{
+    constructor(){                      이렇게하면 애러. extends로 만든 자식클래스는 빈객체로 만들어지고 this로 할다하는 작업을 건너뛴다.그래서 항상 super()로 부모클래스에 컨스트럭털을 실행해줘야한다 
+        this.navigation: 1              this 우ㅣ에super()을 넣어줘야함.이렇게 하면 내비게이션은 1이라고 잘들어갔는데 컬러는 언디파인드 뜬다. 제대로 실행할려면 자식클래스에 컨스트럭털에 동일한 인수를 받는 작업을 해줘야함
+    }                                   constructor(color){super(color)}이렇게 해줘야함
+    park(){                               
+        console.log('park')       
+    }
+   
+}
+
+
+class bmw extends Car{
+    <!-- constructor(...args){
+        super(...args)          이부분이 없으면 있는거 처럼 동작한다. 자식생성자는 무조건 부모생성자를 호출해야한다. 
+    } -->
+    park(){                       
+        console.log('park')       
+    }
+}
+
+
+
+
+promise
+const pr = new promise((resolve, reject) => {   resolve는 성공한경우 reject는 실패했을때 실행되는 함수. 어떤일이 완료된 이후 실행되는 함수를 call back함수
+    //code
+})
+new promise생성자가 반환하는 promise객체는 state: pending(대기)   result: undifined 
+ state는 pending이었다가 resolve(value)가 성공하면 호출되면 state: fullfilled(이행됨)    result:value         이result는 resolve함수로 전달된값
+reject(error) 호출되면 실패하면  state: rejected(거부됨)     result:error       
+
+const pr = new promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('ok')
+    }, 3000)
+})
+state:pending(대기) result: ubdifined       3s뒤       state:fullfilled(이행됨)     result: 'ok'
+
+const pr = new promise((resolve, reject) => {
+    setTimeout(() => {
+        reject(new error('error..'))
+    }, 3000)
+})
+state:pending(대기) result: ubdifined       3s뒤       tate: rejected(거부됨)        result:error       
+
+위에건 판매자의 코드
+이제 소비자의 코드
+const pr = new promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('ok')
+    }, 3000)
+})
+pr.then(
+    funcion(result){}    이행되었을때 실행 result에는 'ok'드어옴
+    function(error){}    거부되었을때 실행   'error'값 들ㅇ어옴
+
+)
+
+
+const pr = new promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('ok')
+    }, 3000)
+})
+pr.then(
+    funcion(result){
+        console.log(result + '가지러 가자')
+    }    
+    function(error){'다시주문해주세요'}     resolve로 실행되어서 이콜백은 실행되지 않음
+)
+
+pr.then(
+    funcion(result){}
+).catch                    catch는 reject인 경우에만 실행. 가독성이 좋고 첫번째함수에서 애러가 발생하는것도 잡을수 있따   
+    function(error){}    
+).finally(                 이행이든 거부든 처리가 완료되면 항상 실행.로딩화면 같은걸 없앨때 유용
+    function(){
+        console.log('주문끝')
+    }
+)
+
+
+
+const pr = new promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('ok')
+    }, 1000)
+})
+pr.then(
+    funcion(result){
+        console.log(result)
+    }
+).catch(
+    function(error){
+        console.log(err)
+    }
+)                    
+).finally(                 
+    function(){
+        console.log('주문끝')
+    }
+)   시작 ok 끝
+
+
+const pr = new promise((resolve, reject) => {
+    setTimeout(() => {
+       reject(new Error('err...'))
+    }, 1000)
+})
+pr.then(
+    funcion(result){
+        console.log(result)
+    }
+).catch(
+    function(error){
+        console.log(err)
+    }
+)                    
+).finally(                 
+    function(){
+        console.log('주문끝')
+    }
+)   시작 Error: err   끝
+
