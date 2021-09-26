@@ -1,0 +1,127 @@
+let input = [472, 385];
+let a = input[0]
+let b = input[1]
+let first = b%10
+let two = Math.floor(b%100/10)
+let third = Math.floor(b/100)
+console.log(a*first)
+console.log(a*two)
+console.log(a*third)
+console.log(a*b)
+
+백준 2884
+let input = [23, 55]
+let h = input[0]
+let m = input[1]
+m -= 45
+  if(m<0){
+    m+=60
+    h--
+  } if(h<0){
+    h=23
+  }
+console.log(h +' ' +m)
+
+
+
+별 찍기 - 1
+let input = [5]
+let a= ''
+for(let i = 1; i<=input[0]; i++){
+ a+='*'
+ console.log(a)
+} 
+
+
+
+let input = [5]
+
+for(let i =0; i<input[0]; i++){
+  let a = ''
+  for(let j = input[0]-1; j>=0; j--){
+    a+= j<=i ? '*':' '
+  }
+  console.log(a)
+}
+
+
+
+
+
+
+let input = [5]
+let a = ''
+for(let i = 1; i<=input[0]; i++){
+ 
+ a+='*'
+ console.log(a) 
+}
+이거랑
+let input = [5]
+
+for(let i = 1; i<=input[0]; i++){
+    let a = ''
+ a+='*'
+ console.log(a) 
+} 이거의 차이는 
+밑에거는 안에 있자나 그래서 a에 별을 더하고 콘솔 실행하면 반복이 끝나닌깐
+별이 더해지지않고 하나씩만 찍히는거 같다
+
+
+
+
+
+10871
+let input = [
+  [10, 5],
+  [1, 10, 4, 9, 2, 3, 8, 5, 7, 6]
+];
+let a = "";
+for (let i = 0; i < input[0][0]; i++) {
+  if (input[1][i] < input[0][1]) {
+    a += input[1][i] + " ";             빈문자열주고 숫자에다 +공백을 더하면 되네
+  }
+}
+console.log(a)
+
+
+
+
+10952
+let input = [
+  [1, 1],
+  [2, 3],
+  [3, 4],
+  [9, 8],
+  [5, 2],
+  [0, 0]
+];
+let i = 0
+while(i<6){
+  console.log(input[i][0]+input[i][1])
+  i++
+}
+
+
+
+1110
+let input = 26
+let num = input;
+let sum;
+let i = 0;
+
+while (true) {
+    i++;
+
+    sum = Math.floor(num / 10) + num % 10;
+    num = (num % 10) * 10 + sum % 10; 
+
+    if (input === num) {
+	break;
+    } 
+}
+
+console.log(i);
+
+
+10818
