@@ -1,0 +1,287 @@
+let a = 2.01111
+console.log(Math.ceil(a))
+3이 나온다
+
+
+
+arry[1, 2, 3]
+indexOf(3)
+문자만 찾는게 아니네 숫자도 찾아주는데?
+그리고 숫자를 반환하네
+
+
+
+
+let input = [3,
+  [40, 80, 60]]
+let max = Math.max(input[1])
+console.log(max)
+nan뜬다 Math.max는 배열을 못 읽나 보다 
+...을써라
+
+
+
+string 과 tostring은
+let input = [1,2,3,4,5]
+let a = input.toString()
+console.log(a)
+1,2,3,4,5문자로 나옴
+배열의 숫자들을 문자로 나온다
+
+
+
+4673
+let arr = [];
+let answer = [];
+
+for (let i = 1; i <= 100; i++) {
+  let N = 0;
+  let stringNumber = String(i);
+  for (let j = 0; j < stringNumber.length; j++) {
+    N += Number(stringNumber[j]);
+  }
+  let nNum = i + N;
+  arr.push(nNum);
+}
+
+for (let i = 1; i <= 100; i++) {
+  if (arr.indexOf(i) === -1) {
+    answer += i + "\n";
+  }
+}
+
+console.log(answer);
+
+
+
+
+
+
+.fill('a', 1, 2)
+1부터 2앞까지 'a'로 추ㅐ워라
+array(0, 'a',2, 3,4)
+
+.fill('a')
+전부다 'a'
+
+.fill('a', 1)
+1번부터 끝까지 'a'로 채워라
+
+
+
+삼각형 판별
+function solution(a, b, c){
+    let answer="YES", max;
+    let tot=a+b+c;
+    if(a>b) max=a;
+    else max=b;
+    if(c>max) max=c;
+    if(tot-max<=max) answer="NO"; 
+    return answer;
+}
+
+console.log(solution(13, 33, 17));
+
+
+
+연필개수
+function solution(n){
+    let answer;
+    answer=Math.ceil(n/12);
+    return answer;
+}
+
+console.log(solution(178));
+
+
+
+
+Math.ceil(2.011111)
+.뒤에 숫자가 있다면 그냥 1을 올려버린다
+
+
+
+
+
+let arr=[5, 7, 1, 3, 2, 9, 11];
+console.log(arr.length);
+구해진다
+
+
+
+let a = Number.MAX_SAFE_INTEGER
+안정정인 큰숫자
+
+
+
+
+최솟값 구하기
+function solution(arr){         
+    let answer, min=Number.MAX_SAFE_INTEGER;
+    for(let i=0; i<arr.length; i++){
+        if(arr[i]<min) min=arr[i];
+    }
+    answer=min;
+    return answer;
+
+}
+
+let arr=[5, 7, 1, 3, 2, 9, 11];
+console.log(solution(arr));
+
+이랟 됨
+function solution(arr){         
+    let answer = arr[0]
+    for(let i=0; i<arr.length; i++){
+        if(arr[i]<answer) answer=arr[i];
+    }
+    return answer;
+
+}
+
+console.log(solution([5, 7, 1, 3, 2, 9, 11]))
+
+
+
+
+내장함수로 최댓값 최소값 구하기 
+Math.max()   안에 배열들어가면 안됨 인자로.
+let a = [5, 7, 1, 3, 2, 9, 11]
+console.log(Math.min(...a))
+...a이렇게 하면 됨 이걸 전개 연산자. 나머지 매개변수 아닌가? 
+a[0], a[1], a[2]이렇게 펼쳐준다
+
+전개연산자 안쓸라면
+Math.max.apply(null)
+첫번째 인자는 객체, 두번쨰 인자에 배열
+null은 this 뭐시기
+
+
+
+
+길이는 
+let a =[12]
+console.log(a.length) 
+배열은 되는데 
+let a =12
+console.log(a.length) 
+그냥 숫자는 안됨, 아마도 인덱스 값을 기준이로 하는게 아닐까
+
+
+
+
+
+
+
+홀수
+function solution(arr){
+    let answer=[];
+    let sum=0, min=1000;
+    for(let x of arr){
+        if(x%2===1){
+            sum+=x;
+            if(x<min) min=x;
+        }
+    }
+    answer.push(sum);
+    answer.push(min);     
+    return answer;
+}
+
+arr=[12, 77, 38, 41, 53, 92, 85];
+console.log(solution(arr));
+
+
+
+고차함수
+자기의 매개변수에 함수를 전달받는것
+let a  = [10, 11, 12, 13, 14, 15]
+a.forEach(함수, ㅇㅇ)   ㅇㅇ은 생략가능, 함수는 필수
+for반복문 대신 사용하는 애
+a.forEach(function(v, i)    v는 a의 요소, i는 인덱스 
+{
+    console.log(v, i, this)   
+}, [1, 2])
+10 0    [1, 2]
+11 1     [1,2]
+12 2     [1,2]
+13 3     [1,2]
+14 4     [1,2]
+15 5     [1,2]
+
+
+map
+새로운 배열을 생성하는거
+let a  = [10, 11, 12, 13, 14, 15]
+let answer = a.map(function(v, i)   
+{
+    return v*v 
+}, [1, 2])
+console.log(answer)
+[100, 121, 144]
+
+이렇게 되면
+let a  = [10, 11, 12, 13, 14, 15]
+let answer = a.map(function(v, i)   
+{
+   if(v%2===0) return v     이렇게 하면 짝수만 될거 같지만 안된다.원본배열과 길이가 같아야한다. 그러면 11같은거는 언디파인드가 나온다
+}, [1, 2])
+console.log(answer)
+
+
+
+filter
+애도 새로운 배열을 생성해서 리턴
+map과 다른 점은 원하는 원소만 뽑아낸다. 원본배열과 길이가 다르다 
+요소들안에서 추출해낸다. map과 다르게. 결과값이 원본요소들 안에 있어야한다. 새로운 요소를 만들어 내는게 아니다 
+let a  = [10, 11, 12, 13, 14, 15]
+let answer = a.filter(function(v, i)   
+{
+    return v%2===0              참일떄만 새로운 배열의 요소로 저장한다
+}, [1, 2])
+console.log(answer)
+
+
+
+
+reduce
+배열을 리턴하는게 아니라 어떤 값을 생성해서 리턴한다
+let a  = [10, 11, 12, 13, 14, 15]
+let answer = a.filter(function(누적값, 요소)   
+{
+    return 누적값+v           여기 값이 누적값에 들어간다. 토탈 합한값을 return한다 
+}, 0)
+console.log(answer)
+애는 리듀스를 원본배열에 합을 구할때만 쓰고 안쓴데
+
+
+
+
+
+
+.splice(1,2,3)
+1뭘잘라낼거냐
+2몇개를 잘라낼거냐
+3잘라낸자리에 뭘 추가 할거냐
+
+
+
+일곱 난쟁이
+function solution(arr){
+  let answer=arr;
+  let sum=answer.reduce((a, b)=>a+b, 0);
+  for(let i=0; i<8; i++){
+      for(let j=i+1; j<9; j++){
+          if((sum-(answer[i]+answer[j]))==100){
+              answer.splice(j, 1);
+              answer.splice(i, 1);
+          }
+      }
+  }
+  return answer;
+}
+
+let arr=[20, 7, 23, 19, 10, 15, 25, 8, 13];
+console.log(solution(arr));
+
+
