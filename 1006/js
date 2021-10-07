@@ -1,0 +1,243 @@
+.split('') 빈문자열 적으면
+문자하나하나를 나눠서 배열화. 
+
+.reverse()
+배열화가 되야지 reverse쓸수 있다
+
+.join()
+배열의 모든 모든 요소들을 연셜해 문자열 출려ㅕㄱ
+아무것도 안저으면 ,로나눠서 문자를 붙인다
+''을 적으면 다닥다닥  붙는다
+
+.replace()
+문자열에서 같은 문자가 여러번 반보될때 한번만
+.replace(/dd/g, ff)  dd을 ff로 바꾸
+.replace(/dd/gi,ff)  gi는 대소문자 구분없이 찾는거
+.replace(/[^a-z]/g,'')   소문자가 아닌것들을 찾아서 빈문자로
+
+
+
+parseInt()
+문자를 숫자로. 
+parseInt('n10') 하면 nan뜨고
+parseInt('10n') 10뜬다
+paserInt('10mnnnn13') 10
+parseInt('-10')  -10
+parseInt('      10') 10
+parseInt('10      ') 10
+
+
+
+
+
+숫자만 추출
+function solution(str){
+    let answer="";
+    for(let x of str){
+        if(!isNaN(x)) answer+=x;
+    }  
+    return parseInt(answer);
+}
+
+let str="g0en2T0s8eSoft";
+console.log(solution(str));
+
+
+
+
+function solution(str){
+    let answer=0
+    for(let x of str){
+        if(!isNaN(x))  answer = answer*10+Number(x)
+    }
+    return parseInt(answer);
+}
+
+let str="g0en2T0s8eSoft";
+console.log(solution(str));
+
+
+
+
+
+
+가장짧은 문자거리
+function solution(s, t){
+    let answer=[];
+    let p=1000;
+    for(let x of s){
+        if(x===t){
+            p=0;
+            answer.push(p);
+        }
+        else{
+            p++;
+            answer.push(p);
+        }
+    }
+    p=1000;
+    for(let i=s.length-1; i>=0; i--){
+        if(s[i]===t) p=0;
+        else{
+            p++;
+            answer[i]=Math.min(answer[i], p);
+        }
+    }
+    return answer;
+}
+
+let str="teachermode";
+console.log(solution(str, 'e'));
+
+
+
+
+
+문자열 압축
+function solution(s){
+    let answer="";
+    let cnt=1;
+    s=s+" ";
+    for(let i=0; i<s.length-1; i++){
+        if(s[i]===s[i+1]) cnt++;
+        else{
+            answer+=s[i];
+            if(cnt>1) answer+=String(cnt);
+            cnt=1;
+        }
+    }
+    return answer;
+}
+
+let str="KKHSSSSSSSE";
+console.log(solution(str));
+
+
+
+
+
+자리수의 합
+function solution(n, arr){
+    let answer, max=Number.MIN_SAFE_INTEGER;
+    for(let x of arr){
+        let sum=0, tmp=x;
+        while(tmp){
+            sum+=(tmp%10);
+            tmp=Math.floor(tmp/10);
+        }
+        if(sum>max){
+            max=sum;
+            answer=x;
+        }
+        else if(sum===max){
+            if(x>answer) answer=x;
+        }
+    }
+    return answer;
+}
+
+let arr=[128, 460, 603, 40, 521, 137, 123];
+console.log(solution(7, arr));
+
+
+
+function solution(n, arr){
+    let answer, max=Number.MIN_SAFE_INTEGER;
+    for(let x of arr){
+        let sum=x.toString().split('').reduce((a, b)=>a+Number(b), 0);
+        if(sum>max){
+            max=sum;
+            answer=x;
+        }
+        else if(sum===max){
+            if(x>answer) answer=x;
+        }
+    }
+    return answer;
+}
+
+let arr=[128, 460, 603, 40, 521, 137, 123];
+console.log(solution(7, arr));
+
+
+
+
+
+Math.sqrt() 제곱급ㄴ
+
+뒤집은 소수
+function isPrime(num){
+    if(num===1) return false;
+    for(let i=2; i<=parseInt(Math.sqrt(num)); i++){
+        if(num%i===0) return false;
+    }
+    return true;
+}
+function solution(arr){
+    let answer=[];
+    for(let x of arr){
+        let res=0;
+        while(x){
+            let t=x%10;
+            res=res*10+t;
+            x=parseInt(x/10);
+        }
+        if(isPrime(res)) answer.push(res);
+    }
+    return answer;
+}
+
+let arr=[32, 55, 62, 20, 250, 370, 200, 30, 100];
+console.log(solution(arr));
+
+
+
+
+function isPrime(num){
+    if(num===1) return false;
+    for(let i=2; i<=parseInt(Math.sqrt(num)); i++){
+        if(num%i===0) return false;
+    }
+    return true;
+}
+function solution(arr){
+    let answer=[];
+    for(let x of arr){
+        let res=Number(x.toString().split('').reverse().join(''));
+        if(isPrime(res)) answer.push(res);
+    }
+    return answer;
+}
+
+let arr=[32, 55, 62, 20, 250, 370, 200, 30, 100];
+console.log(solution(arr));
+
+
+
+
+
+
+멘토링
+function solution(test){
+    let answer=0;
+    m=test.length;
+    n=test[0].length;
+    for(let i=1; i<=n; i++){
+        for(let j=1; j<=n; j++){
+            let cnt=0;
+            for(let k=0; k<m; k++){
+                let pi=pj=0;
+                for(let s=0; s<n; s++){
+                    if(test[k][s]===i) pi=s;
+                    if(test[k][s]===j) pj=s;
+                }
+                if(pi<pj) cnt++;
+            }
+            if(cnt===m) answer++;
+        }
+    }
+    return answer;
+}
+
+let arr=[[3, 4, 1, 2], [4, 3, 2, 1], [3, 1, 4, 2]];
+console.log(solution(arr));
