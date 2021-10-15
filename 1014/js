@@ -1,0 +1,216 @@
+크레인 인형뽑기
+function solution(board, moves){
+    let answer=0;
+    let stack=[];
+    moves.forEach(pos => {
+        for(let i=0; i<board.length; i++){
+            if(board[i][pos-1]!==0){
+                let tmp=board[i][pos-1];
+                board[i][pos-1]=0;
+                if(tmp===stack[stack.length-1]){
+                    stack.pop();
+                    answer+=2;
+                }
+                else stack.push(tmp);
+                break;
+            }
+        }
+    });
+                    
+    return answer;
+}
+
+let a=[[0,0,0,0,0],
+       [0,0,1,0,3],
+       [0,2,5,0,1],
+       [4,2,4,4,2],
+       [3,5,1,3,1]];
+
+let b=[1, 5, 3, 5, 1, 2, 1, 4];
+console.log(solution(a, b));
+
+
+
+후위식연산
+function solution(s){  
+    let answer;
+    let stack=[];
+    for(let x of s){
+        if(!isNaN(x)) stack.push(Number(x));
+        else{
+            let rt=stack.pop();
+            let lt=stack.pop();
+            if(x==='+') stack.push(lt+rt);
+            else if(x==='-') stack.push(lt-rt);
+            else if(x==='*') stack.push(lt*rt);
+            else if(x==='/') stack.push(lt/rt);
+        }
+    }
+    answer=stack[0];
+    return answer;
+}
+
+let str="352+*9-";
+console.log(solution(str));
+
+
+
+
+쇠막대기
+function solution(s){
+    let answer=0;
+    let stack=[];
+    for(let i=0; i<s.length; i++){
+        if(s[i]==='(') stack.push('(');
+        else{
+            stack.pop(); 
+            if(s[i-1]==='(') answer+=stack.length;
+            else answer++;
+            //stack.pop(); 이 위치에 하면 레이저까지 카운팅한다.
+        }
+    }                          
+    return answer;
+}
+
+let a="()(((()())(())()))(())";
+console.log(solution(a));
+
+
+
+
+공주구하기
+function solution(n, k){
+    let answer;
+    let queue=Array.from({length:n}, (v, i)=>i+1); 
+    while(queue.length){
+        for(let i=1; i<k; i++) queue.push(queue.shift());
+        queue.shift();
+        if(queue.length===1) answer=queue.shift();
+    }  
+    return answer;
+}
+
+console.log(solution(8, 3));
+
+
+
+교육과정 설계
+function solution(need, plan){
+    let answer="YES";
+    let queue=need.split('');
+    for(let x of plan){
+        if(queue.includes(x)){
+            if(x!==queue.shift()) return "NO";
+        }
+    }
+    if(queue.length>0) return "NO";  
+    return answer;
+}
+
+let a="CBA";
+let b="CBDAGE";
+console.log(solution(a, b));
+
+
+
+선택정렬
+function solution(arr){
+    let answer=arr;
+    for(let i=0; i<arr.length; i++){
+        let idx=i;
+        for(let j=i+1; j<arr.length; j++){
+            if(arr[j]<arr[idx]) idx=j;
+        }
+        [arr[i], arr[idx]] = [arr[idx], arr[i]];
+    } 
+    return answer;
+}
+
+let arr=[13, 5, 11, 7, 23, 15];
+console.log(solution(arr));
+
+
+
+버블정렬
+function solution(arr){
+    let answer=arr;
+    for(let i=0; i<arr.length-1; i++){
+        for(let j=0; j<arr.length-i-1; j++){
+            if(arr[j]>arr[j+1]){
+                [arr[j], arr[j+1]]=[arr[j+1], arr[j]];
+            }
+        }   
+    } 
+    return answer;
+}
+
+let arr=[13, 5, 11, 7, 23, 15];
+console.log(solution(arr));
+
+
+
+스페셜소트
+function solution(arr){
+    let answer=arr;
+    for(let i=0; i<arr.length-1; i++){
+        for(let j=0; j<arr.length-i-1; j++){
+            if(arr[j]>0 && arr[j+1]<0){
+                [arr[j], arr[j+1]]=[arr[j+1], arr[j]];
+            }
+        }   
+    } 
+    return answer;
+}
+
+let arr=[1, 2, 3, -3, -2, 5, 6, -6];
+console.log(solution(arr));
+
+
+
+function solution(arr){
+    let answer=[];
+    for(let x of arr){
+        if(x<0) answer.push(x);
+    }
+    for(let x of arr){
+        if(x>0) answer.push(x);
+    }
+    return answer;
+}
+
+let arr=[1, 2, 3, -3, -2, 5, 6, -6];
+
+
+삽입정렬
+function solution(arr){
+    let answer=arr;
+    for(let i=0; i<arr.length; i++){
+        let tmp=arr[i], j;
+        for(j=i-1; j>=0; j--){
+            if(arr[j]>tmp) arr[j+1]=arr[j];
+            else break;
+        }
+        arr[j+1]=tmp;
+    } 
+    return answer;
+}
+
+let arr=[11, 7, 5, 6, 10, 9];
+console.log(solution(arr));
+
+function solution(arr){
+    let answer=[];
+    answer.push(arr[0]);
+    for(let i=1; i<arr.length; i++){
+        for(let j=0; j<answer.length; j++){
+            if(arr[i]<answer[j]){
+                answer.splice(j, 0, arr[i]);
+                break;
+            } 
+        }
+    }
+    return answer;
+}
+
+let arr=[11, 7, 5, 6, 10, 9];
+console.log(solution(arr));
