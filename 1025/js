@@ -1,0 +1,125 @@
+newarr=arr.slice() 이렇게 하면 깊은 복사
+
+
+결혼식
+function solution(times){
+    let answer=Number.MIN_SAFE_INTEGER;
+    let T_line=[];
+    for(let x of times){
+        T_line.push([x[0], 's']);
+        T_line.push([x[1], 'e']);
+    }
+    T_line.sort((a, b)=>{
+        if(a[0]===b[0]) return a[1].charCodeAt()-b[1].charCodeAt();
+        else return a[0]-b[0];
+    });
+    let cnt=0;
+    for(let x of T_line){
+        if(x[1]==='s') cnt++;
+        else cnt--;
+        answer=Math.max(answer, cnt);
+    }
+    return answer;
+}
+
+let arr=[[14, 18], [12, 15], [15, 20], [20, 30], [5, 14]];
+console.log(solution(arr));
+
+
+이분검색
+function solution(target, arr){
+    let answer;
+    arr.sort((a, b)=>a-b);
+    let lt=0, rt=arr.length-1;
+    while(lt<=rt){
+        let mid=parseInt((lt+rt)/2);
+        if(arr[mid]===target){
+            answer=mid+1;
+            break;
+        }
+        else if(arr[mid]>target) rt=mid-1;
+        else lt=mid+1;
+    }
+   
+    return answer;
+}
+
+let arr=[23, 87, 65, 12, 57, 32, 99, 81];
+console.log(solution(32, arr));
+
+
+
+뮤직비디오   
+         function count(songs, capacity){
+    let cnt=1, sum=0;
+    for(let x of songs){
+        if(sum+x > capacity){
+            cnt++;
+            sum=x;
+        }
+        else sum+=x;
+    }
+    return cnt;
+}
+
+function solution(m, songs){
+    let answer;
+    let lt=Math.max(...songs);
+    let rt=songs.reduce((a, b)=>a+b, 0);
+    while(lt<=rt){
+        let mid=parseInt((lt+rt)/2);
+        if(count(songs, mid)<=m){
+            answer=mid;
+            rt=mid-1;
+        }
+        else{
+            lt=mid+1;
+        }
+    } 
+    return answer;
+}
+
+let arr=[1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(solution(3, arr));
+
+
+
+
+마국간
+function count(stable, dist){
+    let cnt=1, ep=stable[0];
+    for(let i=1; i<stable.length; i++){
+        if(stable[i]-ep>=dist){
+            cnt++;
+            ep=stable[i];
+        }
+    }
+    return cnt;
+ }
+ function solution(c, stable){
+     let answer;
+     stable.sort((a, b)=>a-b);
+     let lt=1;
+     let rt=stable[stable.length-1];
+     while(lt<=rt){
+         let mid=parseInt((lt+rt)/2);
+         if(count(stable, mid)>=c){
+             answer=mid;
+             lt=mid+1;
+         }
+         else rt=mid-1;
+     }
+     return answer;
+ }
+
+ let arr=[1, 2, 8, 4, 9];
+ console.log(solution(3, arr));
+
+
+
+ 재귀함수 자기가 자기 자신을 호출하는게 재귀함수
+ return은 반환의 의미도 있지만 종료의 의미도 있따
+
+
+ 스택프래임이 뭔지 중요
+ 스택에 매개 지역변수와 복귀주소 저장
